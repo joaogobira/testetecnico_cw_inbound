@@ -1,0 +1,380 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Analise Estrategica - InfinitePay Growth SEO/AEO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{--g:#00c853;--dark:#0a0a10;--surf:#13131a;--card:#1c1c27;--bdr:rgba(255,255,255,.08);--txt:#e8e8f0;--muted:#8888a8;--acc:#7c4dff;--acc2:#00e5ff;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{background:var(--dark);font-family:Inter,sans-serif;color:var(--txt);overflow:hidden;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;}
+.toolbar{position:fixed;top:0;left:0;right:0;height:44px;background:rgba(10,10,16,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between;padding:0 20px;z-index:100;}
+.brand{display:flex;align-items:center;gap:10px;}
+.logo{width:28px;height:28px;background:linear-gradient(135deg,var(--g),#00a040);border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:900;color:#000;}
+.brand span{font-size:13px;color:var(--muted);}
+.brand strong{color:var(--txt);}
+.tnav{display:flex;align-items:center;gap:16px;}
+.sctr{font-size:13px;color:var(--muted);}
+.sctr b{color:var(--txt);font-weight:600;}
+.nbtn{background:var(--card);border:1px solid var(--bdr);color:var(--txt);border-radius:8px;padding:6px 14px;font-size:13px;cursor:pointer;transition:all .2s;font-family:Inter,sans-serif;}
+.nbtn:hover{background:var(--acc);border-color:var(--acc);}
+.nbtn:disabled{opacity:.3;cursor:default;}
+.stage{margin-top:44px;width:100vw;height:calc(100vh - 44px);display:flex;align-items:center;justify-content:center;overflow:hidden;}
+.wrap{width:1280px;height:720px;position:relative;transform-origin:center center;}
+.slide{width:100%;height:100%;position:absolute;top:0;left:0;padding:52px 68px;display:none;flex-direction:column;justify-content:center;overflow:hidden;}
+.slide.on{display:flex;animation:si .35s ease;}
+@keyframes si{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+.s-cover{background:radial-gradient(ellipse at 30% 50%,rgba(0,200,83,.18) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(124,77,255,.14) 0%,transparent 50%),var(--dark);align-items:flex-start;justify-content:center;}
+.s-sec{background:var(--dark);border-top:4px solid var(--g);}
+.s-cont{background:var(--surf);}
+.s-acc{background:linear-gradient(135deg,#0a1628,#0d0d20);border-left:5px solid var(--acc);}
+.s-warn{background:linear-gradient(135deg,#1a0e0e,#0d0d20);border-left:5px solid #ff6b6b;}
+.s-grn{background:linear-gradient(135deg,#001a0a,#0a1628);border-left:5px solid var(--g);}
+.lbl{font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--g);margin-bottom:16px;}
+h1.ct{font-size:52px;font-weight:900;line-height:1.05;background:linear-gradient(135deg,#fff 30%,var(--g) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:20px;max-width:820px;}
+.csub{font-size:17px;color:var(--muted);margin-bottom:36px;}
+.cmeta{display:flex;gap:24px;flex-wrap:wrap;}
+.cbdg{background:rgba(0,200,83,.12);border:1px solid rgba(0,200,83,.3);border-radius:8px;padding:8px 16px;font-size:13px;color:var(--g);font-weight:600;}
+h2.st{font-size:36px;font-weight:800;color:#fff;margin-bottom:8px;line-height:1.1;}
+.snum{font-size:90px;font-weight:900;color:rgba(0,200,83,.08);position:absolute;right:56px;top:50%;transform:translateY(-50%);line-height:1;}
+.grid{display:grid;gap:14px;margin-top:22px;}
+.g4{grid-template-columns:repeat(4,1fr);}
+.g3{grid-template-columns:repeat(3,1fr);}
+.g2{grid-template-columns:1fr 1fr;}
+.card{background:var(--card);border:1px solid var(--bdr);border-radius:12px;padding:18px;}
+.ci{font-size:26px;margin-bottom:10px;}
+.ct2{font-size:13px;font-weight:700;color:#fff;margin-bottom:6px;}
+.cb{font-size:12px;color:var(--muted);line-height:1.5;}
+table{width:100%;border-collapse:collapse;margin-top:18px;}
+th{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);padding:8px 12px;text-align:left;border-bottom:1px solid var(--bdr);}
+td{padding:10px 12px;font-size:12px;border-bottom:1px solid rgba(255,255,255,.04);vertical-align:top;}
+.kw{font-weight:600;color:#fff;}
+.vol{color:var(--g);font-weight:700;}
+.kd-low{color:var(--g);font-weight:600;}
+.kd-mid{color:#ffd740;font-weight:600;}
+.src{font-size:11px;color:var(--muted);}
+.bdsc{background:rgba(255,107,107,.15);border:1px solid rgba(255,107,107,.3);color:#ff8a80;border-radius:5px;padding:2px 8px;font-size:10px;font-weight:700;}
+.hlbox{background:rgba(0,200,83,.08);border:1px solid rgba(0,200,83,.25);border-radius:10px;padding:14px 18px;margin-top:14px;}
+.bnum{font-size:38px;font-weight:900;color:var(--g);line-height:1;}
+.blbl{font-size:12px;color:var(--muted);margin-top:4px;}
+.wbox{background:rgba(255,107,107,.08);border:1px solid rgba(255,107,107,.25);border-radius:10px;padding:14px 18px;margin-top:12px;font-size:13px;color:#ffb3b3;line-height:1.6;}
+.pgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:18px;}
+.pc{background:var(--card);border:1px solid var(--bdr);border-radius:12px;padding:14px;}
+.pn{font-size:12px;font-weight:700;color:#fff;margin-bottom:8px;}
+.pr{font-size:11px;color:var(--muted);line-height:1.6;}
+.pr strong{color:var(--g);}
+.pct{font-size:10px;color:var(--acc2);margin-top:6px;font-style:italic;line-height:1.4;}
+.pcst{background:rgba(0,200,83,.1);border-radius:4px;padding:2px 6px;font-size:9px;font-weight:700;color:var(--g);display:inline-block;margin-bottom:6px;}
+.bl{list-style:none;margin-top:18px;display:flex;flex-direction:column;gap:12px;}
+.bl li{display:flex;align-items:flex-start;gap:12px;background:var(--card);border:1px solid var(--bdr);border-radius:10px;padding:12px 16px;font-size:13px;line-height:1.5;}
+.bln{min-width:24px;height:24px;background:linear-gradient(135deg,var(--acc),#5e35b1);border-radius:5px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;color:#fff;flex-shrink:0;}
+.bl li strong{color:#fff;}
+.bl li span{color:var(--muted);}
+.rm{margin-top:22px;display:flex;gap:14px;}
+.ph{flex:1;background:var(--card);border:1px solid var(--bdr);border-radius:12px;padding:18px;}
+.phh{font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;}
+.ph1 .phh{color:var(--g);}
+.ph2 .phh{color:#ffd740;}
+.ph3 .phh{color:var(--acc2);}
+.phi{font-size:11px;color:var(--muted);margin-bottom:7px;padding-left:10px;border-left:2px solid;line-height:1.5;}
+.ph1 .phi{border-color:rgba(0,200,83,.4);}
+.ph2 .phi{border-color:rgba(255,215,64,.4);}
+.ph3 .phi{border-color:rgba(0,229,255,.4);}
+.phm{margin-top:12px;font-size:10px;color:var(--muted);background:rgba(255,255,255,.03);border-radius:5px;padding:7px 9px;}
+.phm strong{color:#fff;}
+.ggrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px;}
+.gc{background:var(--card);border-radius:12px;padding:18px;border-top:3px solid;}
+.gc.neg{border-color:#ff6b6b;}
+.gc.neu{border-color:#ffd740;}
+.gc.pos{border-color:var(--g);}
+.gct{font-size:11px;font-weight:700;margin-bottom:8px;}
+.gc.neg .gct{color:#ff8a80;}
+.gc.neu .gct{color:#ffd740;}
+.gc.pos .gct{color:var(--g);}
+.gcb{font-size:11px;color:var(--muted);line-height:1.6;}
+.lgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:18px;}
+.lc{background:rgba(255,107,107,.06);border:1px solid rgba(255,107,107,.2);border-radius:12px;padding:14px;}
+.lt{font-size:12px;font-weight:700;color:#ff8a80;margin-bottom:5px;}
+.lb{font-size:11px;color:var(--muted);line-height:1.6;}
+.chub{display:flex;align-items:center;justify-content:center;margin-bottom:16px;}
+.hub{background:linear-gradient(135deg,rgba(0,200,83,.2),rgba(0,200,83,.05));border:2px solid rgba(0,200,83,.5);border-radius:12px;padding:10px 22px;text-align:center;font-size:13px;font-weight:700;color:var(--g);}
+.carts{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;}
+.ca{background:var(--card);border:1px solid var(--bdr);border-radius:8px;padding:11px;font-size:11px;}
+.av{color:var(--g);font-weight:700;font-size:10px;}
+.at{color:var(--txt);margin-top:3px;line-height:1.4;}
+.srow{display:flex;gap:14px;margin-top:18px;flex-wrap:wrap;}
+.sc{background:var(--card);border:1px solid var(--bdr);border-radius:10px;padding:10px 16px;display:flex;flex-direction:column;align-items:center;}
+.sn{font-size:26px;font-weight:900;color:var(--g);}
+.sl{font-size:10px;color:var(--muted);margin-top:2px;text-align:center;}
+.bt{font-size:13px;color:var(--muted);line-height:1.7;margin-top:10px;}
+.bt strong{color:#fff;}
+.prog{position:fixed;bottom:0;left:0;height:3px;background:linear-gradient(90deg,var(--g),var(--acc));transition:width .4s ease;z-index:100;}
+.sn2{position:absolute;bottom:18px;right:24px;font-size:11px;color:rgba(255,255,255,.2);font-weight:600;}
+.time{color:var(--g);font-weight:700;white-space:nowrap;}
+.blk{color:#fff;font-weight:600;}
+.msg{color:var(--muted);line-height:1.5;}
+</style>
+</head>
+<body>
+<div class="toolbar">
+  <div class="brand">
+    <div class="logo">&#8734;</div>
+    <div><strong>InfinitePay</strong><span> &middot; Analise Estrategica Growth SEO/AEO</span></div>
+  </div>
+  <div class="tnav">
+    <div class="sctr">Slide <b id="cur">1</b> de <b id="tot">17</b></div>
+    <button class="nbtn" id="bp" onclick="go(-1)">&#8592; Anterior</button>
+    <button class="nbtn" id="bn" onclick="go(1)">Proximo &#8594;</button>
+  </div>
+</div>
+<div class="stage"><div class="wrap" id="wrap">
+
+<div class="slide s-cover on">
+<div class="lbl">Case Study &middot; Growth SEO/AEO &middot; 2026</div>
+<h1 class="ct">Calculadora de Margem &amp; Precificacao</h1>
+<p class="csub">Estrategia de lancamento de ferramenta gratuita para acelerar a aquisicao organica da InfinitePay</p>
+<div class="cmeta">
+<div class="cbdg">+50.000 buscas/mes</div>
+<div class="cbdg">KD medio menor que 8</div>
+<div class="cbdg">DR 68 &middot; Top 1 alcancavel</div>
+<div class="cbdg">Meta: 10k visitas/mes</div>
+</div>
+<div class="sn2">1</div>
+</div>
+
+<div class="slide s-cont">
+<div class="lbl">Agenda</div>
+<h2 class="st">O que vamos cobrir</h2>
+<div class="grid g4">
+<div class="card"><div class="ci">&#128269;</div><div class="ct2">1. Analise do Dataset</div><div class="cb">O que o Ahrefs revelou e como chegamos a decisao</div></div>
+<div class="card"><div class="ci">&#128202;</div><div class="ct2">2. Oportunidade</div><div class="cb">Cluster de 50k+ buscas com KD baixo e brecha competitiva</div></div>
+<div class="card"><div class="ci">&#128188;</div><div class="ct2">3. Fit InfinitePay</div><div class="cb">Produtos e taxas reais integrados a ferramenta</div></div>
+<div class="card"><div class="ci">&#128508;</div><div class="ct2">4. Roadmap 90d</div><div class="cb">SEO, AEO e CRO com metas claras por fase</div></div>
+</div>
+<div class="sn2">2</div>
+</div>
+
+<div class="slide s-sec">
+<div class="lbl">Secao 1</div>
+<h2 class="st">O Contexto do Desafio</h2>
+<div class="snum">01</div>
+<div class="grid g2" style="margin-top:22px;">
+<div>
+<div class="card"><div class="ci">&#127919;</div><div class="ct2">A Meta da Lideranca</div><div class="cb">Crescer aquisicao organica atraves de <strong style="color:#fff">ferramentas gratuitas</strong>. Nenhuma decisao sobre qual ferramenta construir.</div></div>
+<div class="card" style="margin-top:12px;"><div class="ci">&#128100;</div><div class="ct2">ICP - Cliente Ideal</div><div class="cb">Micro e pequenos empreendedores: MEIs, lojistas, comerciantes no momento em que definem seus preco de venda.</div></div>
+</div>
+<div>
+<div class="hlbox"><div class="bnum">DR 68</div><div class="blbl">Domain Rating atual da InfinitePay</div></div>
+<div class="hlbox"><div class="bnum">1.900</div><div class="blbl">keywords organicas rankeando</div></div>
+<div class="hlbox"><div class="bnum">12k</div><div class="blbl">visitas organicas/mes (base atual)</div></div>
+</div>
+</div>
+<div class="sn2">3</div>
+</div>
+
+<div class="slide s-cont">
+<div class="lbl">Analise &middot; Dataset Ahrefs</div>
+<h2 class="st">O que tinhamos para trabalhar</h2>
+<p class="bt">3 arquivos via Ahrefs API v3 &middot; Mercado Brasil &middot; Ultimos 6 meses</p>
+<div class="grid g3">
+<div class="card" style="border-color:rgba(0,200,83,.3);"><div class="ci">&#127942;</div><div class="ct2">organic-competitors.csv</div><div class="cb"><strong style="color:var(--g)">14 dominios</strong> concorrentes com metricas de trafego, DR e sobreposicao de keywords</div></div>
+<div class="card" style="border-color:rgba(124,77,255,.3);"><div class="ci">&#128196;</div><div class="ct2">top-pages.csv</div><div class="cb"><strong style="color:#b39ddb">406 URLs</strong> de maior trafego incluindo InfinitePay e todos os concorrentes</div></div>
+<div class="card" style="border-color:rgba(0,229,255,.3);"><div class="ci">&#128273;</div><div class="ct2">organic-keywords.csv</div><div class="cb"><strong style="color:var(--acc2)">409 palavras-chave</strong> com volume, KD, CPC e posicoes por dominio</div></div>
+</div>
+<div class="wbox">Aviso: Dados nao foram limpos. Toda afirmacao desta analise e rastreavel a uma linha especifica dos arquivos CSV do dataset.</div>
+<div class="sn2">4</div>
+</div>
+
+<div class="slide s-cont">
+<div class="lbl">Analise &middot; Descarte</div>
+<h2 class="st">O que consideramos e descartamos</h2>
+<p class="bt">Filtro: <strong>Volume de Busca + KD baixo + Fit com o ICP (MEI/PJ)</strong></p>
+<table>
+<thead><tr><th>Oportunidade</th><th>Dados (dataset)</th><th>Decisao</th></tr></thead>
+<tbody>
+<tr><td><strong style="color:#fff">Calculadora CLT / Salario Liquido</strong></td><td>89.000 buscas/mes &middot; dinheirocerto.com.br: 172.192 visitas<br><span class="src">Linha 4 competitors / Linha 2 top-pages</span></td><td><span class="bdsc">DESCARTADO</span><br><span class="src" style="margin-top:4px;display:block">Zero fit com ICP. Atrai CLT, nao MEI/PJ.</span></td></tr>
+<tr><td><strong style="color:#fff">Geradores de CPF / Senhas</strong></td><td>Alto volume &middot; Intencao comercial: 0<br><span class="src">dinheirocerto.com.br</span></td><td><span class="bdsc">DESCARTADO</span><br><span class="src" style="margin-top:4px;display:block">Trafego sem valor de aquisicao.</span></td></tr>
+<tr><td><strong style="color:#fff">Calculadora de Taxas de Maquininha</strong></td><td>/materiais/calculadora-de-taxas<br><strong style="color:#ff8a80">22 visitas/mes</strong><br><span class="src">Linha 296 top-pages.csv</span></td><td><span class="bdsc">DESCARTADO</span><br><span class="src" style="margin-top:4px;display:block">Ja existe, estagnado. Usuario no fundo de funil.</span></td></tr>
+</tbody>
+</table>
+<div class="sn2">5</div>
+</div>
+
+<div class="slide s-sec">
+<div class="lbl">Secao 2 &middot; A Oportunidade</div>
+<h2 class="st">50k+ buscas &middot; KD menor que 8 &middot; Brecha total</h2>
+<div class="snum">02</div>
+<div class="srow">
+<div class="sc"><span class="sn">50k+</span><span class="sl">buscas/mes no cluster</span></div>
+<div class="sc"><span class="sn">KD&lt;8</span><span class="sl">media do cluster</span></div>
+<div class="sc"><span class="sn">0</span><span class="sl">visitas na URL antiga da InfinitePay</span></div>
+<div class="sc"><span class="sn">DR68</span><span class="sl">InfinitePay vs DR38 do concorrente lider</span></div>
+</div>
+<div class="sn2">6</div>
+</div>
+
+<div class="slide s-cont">
+<div class="lbl">Dataset &middot; organic-keywords.csv</div>
+<h2 class="st">As palavras-chave que sustentam a escolha</h2>
+<table>
+<thead><tr><th>Palavra-chave</th><th>Volume/mes</th><th>KD</th><th>CPC</th><th>Referencia</th></tr></thead>
+<tbody>
+<tr><td class="kw">precificacao</td><td class="vol">14.800</td><td class="kd-low">7</td><td>$0,35</td><td class="src">Linha 47 organic-keywords.csv</td></tr>
+<tr><td class="kw">markup</td><td class="vol">9.900</td><td class="kd-low">3</td><td>$0,02</td><td class="src">Linha 42 organic-keywords.csv</td></tr>
+<tr><td class="kw">como precificar um produto</td><td class="vol">4.100</td><td class="kd-low">2</td><td>$0,10</td><td class="src">Linha 61 organic-keywords.csv</td></tr>
+<tr><td class="kw">precificacao de produtos</td><td class="vol">3.900</td><td class="kd-low">4</td><td>$0,25</td><td class="src">Linha 81 organic-keywords.csv</td></tr>
+<tr><td class="kw">margem de lucro</td><td class="vol">3.300</td><td class="kd-low">8</td><td>$0,01</td><td class="src">Linha 149 organic-keywords.csv</td></tr>
+<tr><td class="kw">margem de contribuicao</td><td class="vol">2.400</td><td class="kd-low">9</td><td>$0,12</td><td class="src">Linha 140 organic-keywords.csv</td></tr>
+<tr><td class="kw">como calcular margem de lucro</td><td class="vol">1.700</td><td class="kd-low">5</td><td>$0,02</td><td class="src">Linha 144 organic-keywords.csv</td></tr>
+<tr><td class="kw">calculadora de margem</td><td class="vol">320</td><td class="kd-mid">13</td><td>$0,02</td><td class="src">Linha 392 top-pages.csv</td></tr>
+</tbody>
+</table>
+<div class="sn2">7</div>
+</div>
+
+<div class="slide s-cont">
+<div class="lbl">Analise Competitiva &middot; Brecha de Mercado</div>
+<h2 class="st">Por que a InfinitePay pode vencer</h2>
+<div class="ggrid">
+<div class="gc neg"><div class="gct">Concorrentes: Apenas Blog Estatico</div><div class="gcb">giroloja.com.br (DR 38): rankeia /blog/como-precificar-um-produto<br><br>lojafacil.com.br (DR 54): rankeia /blog/precificacao-o-que-e<br><br>Nenhum oferece ferramenta interativa.</div></div>
+<div class="gc neu"><div class="gct">InfinitePay Atual: URL Desperdicada</div><div class="gcb">URL /materiais/calculadora-de-margem<br><br>Posicao atual: <strong>67</strong><br>Trafego atual: <strong>0 visitas/mes</strong><br><br>Linha 392 top-pages.csv<br><br>Intencao do usuario nao atendida.</div></div>
+<div class="gc pos"><div class="gct">InfinitePay com Nova Ferramenta</div><div class="gcb">DR 68 supera todos os concorrentes neste nicho.<br><br>Ferramenta interativa vs texto estatico = experiencia superior.<br><br>Redirect 301 herda historico de indexacao.<br><br><strong>Resultado: Top 1 do Google alcancavel.</strong></div></div>
+</div>
+<div class="sn2">8</div>
+</div>
+
+<div class="slide s-sec">
+<div class="lbl">Secao 3 &middot; Fit de Negocio</div>
+<h2 class="st">Como a ferramenta converte em clientes InfinitePay</h2>
+<div class="snum">03</div>
+<p class="bt" style="margin-top:24px;font-size:15px;max-width:780px;">A equacao do preco de venda inclui obrigatoriamente as <strong>taxas de meios de pagamento</strong>. Quando o empreendedor calcula seu preco, descobre em tempo real quanto ele ganha ao trocar taxas de 4,99% por taxas de <strong>2,89% com a InfinitePay</strong>.</p>
+<div class="srow" style="margin-top:24px;">
+<div class="sc"><span class="sn" style="color:#ff8a80;">4,99%</span><span class="sl">Taxa media do mercado</span></div>
+<div class="sc" style="border-color:rgba(0,200,83,.3);"><span class="sn">2,89%</span><span class="sl">InfinitePay Credito 1x</span></div>
+<div class="sc" style="border-color:rgba(0,200,83,.3);"><span class="sn">0%</span><span class="sl">InfinitePay Pix (gratis)</span></div>
+<div class="sc"><span class="sn">R$2,10</span><span class="sl">Economia por R$100 vendidos</span></div>
+</div>
+<div class="sn2">9</div>
+</div>
+
+<div class="slide s-cont">
+<div class="lbl">Produtos InfinitePay &middot; Taxas Reais</div>
+<h2 class="st">Ecossistema integrado a calculadora</h2>
+<div class="pgrid">
+<div class="pc"><span class="pcst">R$ 0,00 &middot; Sem mensalidade</span><div class="pn">InfiniteTap (Celular como Maquininha)</div><div class="pr">Debito: <strong>0,75% a 1,38%</strong><br>Credito 1x: <strong>2,89% a 3,16%</strong><br>Parcelado 12x: <strong>9,80% a 12,40%</strong></div><div class="pct">Venda no celular sem gastar nada com aparelho.</div></div>
+<div class="pc"><span class="pcst">Compra unica &middot; Sem aluguel</span><div class="pn">InfiniteSmart (Maquininha Fisica)</div><div class="pr">Debito: <strong>0,75% a 1,38%</strong><br>Credito 1x: <strong>2,89% a 3,16%</strong><br>Parcelado 12x: <strong>9,80% a 12,40%</strong></div><div class="pct">Elimine aluguel de R$80 a R$150/mes de maquininha.</div></div>
+<div class="pc"><span class="pcst">R$ 0,00 &middot; Sem taxa de adesao</span><div class="pn">Link de Pagamento</div><div class="pr">Pix: <strong>0,00% (Gratis)</strong><br>Credito 1x: <strong>~3,20%</strong><br>Parcelado 12x: <strong>~12,90%</strong></div><div class="pct">Venda pelo WhatsApp e repasse a taxa no preco.</div></div>
+<div class="pc"><span class="pcst">100% Gratuita</span><div class="pn">Conta Digital PJ</div><div class="pr">Pix ilimitado: <strong>R$ 0,00</strong><br>Transferencias: <strong>R$ 0,00</strong></div><div class="pct">Zere as tarifas bancarias da sua empresa.</div></div>
+<div class="pc"><span class="pcst">Sem custo</span><div class="pn">Rendimento Automatico de Saldo</div><div class="pr">Rende <strong>100%+ do CDI</strong> diariamente com liquidez imediata</div><div class="pct">Seu caixa rende mais que a poupanca todos os dias.</div></div>
+<div class="pc"><span class="pcst">Sem anuidade</span><div class="pn">Cartao InfiniteCard</div><div class="pr"><strong>+1,5% de Cashback</strong> em todas as compras</div><div class="pct">Pague fornecedores e receba 1,5% de volta na conta.</div></div>
+</div>
+<div class="sn2">10</div>
+</div>
+
+<div class="slide s-warn">
+<div class="lbl">Transparencia Analitica</div>
+<h2 class="st">O que os dados NAO permitem concluir</h2>
+<p class="bt">Apontamos as limitacoes reais do dataset. Isso faz parte da analise responsavel.</p>
+<div class="lgrid">
+<div class="lc"><div class="lt">Sem Dados de Conversao / LTV</div><div class="lb">O Ahrefs mostra trafego estimado, nao taxa de conversao em clientes pagantes. Nao sabemos o LTV gerado por visitante de cada keyword.</div></div>
+<div class="lc"><div class="lt">Amostra Reduzida (400 linhas)</div><div class="lb">Dominios grandes rankeiam para dezenas de milhares de keywords. Oportunidades de cauda longa especifica nao estao no export.</div></div>
+<div class="lc"><div class="lt">Ausencia de Sazonalidade</div><div class="lb">6 meses agregados escondem picos sazonais (Black Friday, Natal, viradas fiscais) que poderiam mudar a priorizacao.</div></div>
+<div class="lc"><div class="lt">CTR de Ferramentas Subestimado</div><div class="lb">Calculadoras em Featured Snippets tem CTR muito acima da media. O trafego estimado pelo Ahrefs pode estar bem abaixo do real potencial.</div></div>
+</div>
+<div class="sn2">11</div>
+</div>
+
+<div class="slide s-sec">
+<div class="lbl">Secao 4 &middot; Estrategia Tecnica</div>
+<h2 class="st">Arquitetura da Solucao</h2>
+<div class="snum">04</div>
+<div class="sn2">12</div>
+</div>
+
+<div class="slide s-cont">
+<div class="lbl">Arquitetura &middot; Hub e Spoke</div>
+<h2 class="st">Topic Cluster: Ferramenta + 6 Artigos Satelite</h2>
+<div class="chub"><div class="hub">PAGINA HUB &mdash; /ferramentas/calculadora-margem-lucro-precificacao<br><small>Ferramenta interativa &middot; Centraliza autoridade DR 68</small></div></div>
+<div class="carts">
+<div class="ca"><div class="av">9.900 buscas/mes</div><div class="at">O que e Markup e como aplicar o Markup Divisor no comercio</div></div>
+<div class="ca"><div class="av">390 buscas/mes</div><div class="at">Markup vs Margem de Lucro: Qual a diferenca?</div></div>
+<div class="ca"><div class="av">2.400 buscas/mes</div><div class="at">Margem de Contribuicao: Como calcular e precificar</div></div>
+<div class="ca"><div class="av">1.900 buscas/mes</div><div class="at">Como calcular o lucro real de um produto passo a passo</div></div>
+<div class="ca"><div class="av">340 buscas/mes</div><div class="at">Como dar desconto sem perder o lucro do produto</div></div>
+<div class="ca"><div class="av">Guia Base</div><div class="at">CMV e Custos Fixos: Como calcular para nao ter prejuizo</div></div>
+</div>
+<div class="sn2">13</div>
+</div>
+
+<div class="slide s-grn">
+<div class="lbl">Estrategia Tecnica &middot; SEO e AEO</div>
+<h2 class="st">Otimizacoes que fazem diferenca na SERP</h2>
+<ul class="bl">
+<li><div class="bln">1</div><div><strong>Semantica HTML5 Estrita</strong> <span>&mdash; tags header, main, section, article, fieldset para crawlers e leitores de tela</span></div></li>
+<li><div class="bln">2</div><div><strong>Core Web Vitals Perfeitos</strong> <span>&mdash; Vanilla JS sem bibliotecas pesadas. Carregamento menor que 0.5s, CLS igual a 0</span></div></li>
+<li><div class="bln">3</div><div><strong>Schema WebApplication (JSON-LD)</strong> <span>&mdash; Google reconhece como app interativo e exibe rich snippets avancados</span></div></li>
+<li><div class="bln">4</div><div><strong>Schema FAQPage (JSON-LD)</strong> <span>&mdash; Captura espaco extra na SERP e alimenta modelos de IA (Gemini, ChatGPT, Perplexity)</span></div></li>
+<li><div class="bln">5</div><div><strong>AEO Blocos de Resposta Direta</strong> <span>&mdash; Respostas concisas com menos de 250 caracteres para extracao por LLMs e AI overviews do Google</span></div></li>
+</ul>
+<div class="sn2">14</div>
+</div>
+
+<div class="slide s-sec">
+<div class="lbl">Secao 5 &middot; Roadmap</div>
+<h2 class="st">Roadmap de SEO e AEO &mdash; 90 Dias</h2>
+<div class="snum">05</div>
+<div class="rm">
+<div class="ph ph1"><div class="phh">Fase 1 &middot; Dias 1 a 30 &middot; Fundacao</div><div class="phi">Deploy em /ferramentas/calculadora-margem-lucro-precificacao</div><div class="phi">Redirect 301 da URL antiga (posicao 67, heranca de link juice)</div><div class="phi">Internal linking nos artigos de financas ja existentes no blog</div><div class="phm"><strong>Metricas:</strong> PageSpeed maior que 95 &middot; Schema sem erros &middot; Indexacao 100%</div></div>
+<div class="ph ph2"><div class="phh">Fase 2 &middot; Dias 31 a 60 &middot; Conteudo e PR</div><div class="phi">6 artigos satelites com links para a calculadora</div><div class="phi">Digital PR em portais de MEI, Sebrae e contabilidade</div><div class="phi">Otimizacao de titulos e CTR na SERP</div><div class="phm"><strong>Metricas:</strong> +10 backlinks DR maior que 40 &middot; KWs secundarias no Top 10</div></div>
+<div class="ph ph3"><div class="phh">Fase 3 &middot; Dias 61 a 90 &middot; AEO e CRO</div><div class="phi">Monitorar citacoes no Gemini, Perplexity, ChatGPT</div><div class="phi">Testes A/B nos CTAs de conversao</div><div class="phi">Revisao de metas e expansao de funcionalidades</div><div class="phm"><strong>Metricas:</strong> 10k visitas/mes &middot; 4%+ conversao conta PJ</div></div>
+</div>
+<div class="sn2">15</div>
+</div>
+
+<div class="slide s-acc">
+<div class="lbl">Guia &middot; Video de Apresentacao (10 min)</div>
+<h2 class="st">Roteiro do Pitch para o Lider de Growth</h2>
+<table>
+<thead><tr><th>Tempo</th><th>Bloco</th><th>O que mostrar na tela</th></tr></thead>
+<tbody>
+<tr><td class="time">0:00 a 1:30</td><td class="blk">Abertura e Desafio</td><td class="msg">Contexto do teste &middot; Meta da lideranca &middot; Visao geral da solucao</td></tr>
+<tr><td class="time">1:30 a 3:30</td><td class="blk">Os Dados e a Brecha</td><td class="msg">organic-keywords.csv: linhas 47 (14.8k) e 42 (9.9k) &middot; top-pages.csv: linha 392 (posicao 67, 0 visitas)</td></tr>
+<tr><td class="time">3:30 a 5:00</td><td class="blk">Fit InfinitePay</td><td class="msg">Matriz de produtos: InfiniteTap, InfiniteSmart, Link de Pagamento, Conta PJ e CDI diario</td></tr>
+<tr><td class="time">5:00 a 7:00</td><td class="blk">Demo da Pagina</td><td class="msg">Simulacao ao vivo: Custo R$50 &middot; Despesas 15% &middot; Margem 25% &middot; Taxa 4,99% vs 2,89%</td></tr>
+<tr><td class="time">7:00 a 8:30</td><td class="blk">SEO e AEO Tecnico</td><td class="msg">Inspecionar codigo: meta tags &middot; Schema WebApplication &middot; Schema FAQPage</td></tr>
+<tr><td class="time">8:30 a 10:00</td><td class="blk">Roadmap e Conclusao</td><td class="msg">3 fases &middot; Metas: 10k visitas/mes &middot; 4% conversao conta PJ</td></tr>
+</tbody>
+</table>
+<div class="sn2">16</div>
+</div>
+
+<div class="slide s-cover">
+<div class="lbl">Conclusao</div>
+<h1 class="ct" style="font-size:44px;">A escolha e clara.<br>Os dados sustentam.</h1>
+<p class="csub">Calculadora de Margem de Lucro e Precificacao de Produtos</p>
+<div class="grid g4" style="margin-top:22px;">
+<div class="card"><div class="ci">&#128202;</div><div class="ct2">50k+ buscas/mes</div><div class="cb">Cluster rastreavel no dataset com KD menor que 8</div></div>
+<div class="card"><div class="ci">&#127941;</div><div class="ct2">DR 68 domina</div><div class="cb">Concorrentes com DR 38 e 54 usando apenas posts estaticos</div></div>
+<div class="card"><div class="ci">&#128176;</div><div class="ct2">Conversao direta</div><div class="cb">Taxa da InfinitePay no CTA gera aquisicao nativa</div></div>
+<div class="card"><div class="ci">&#128508;</div><div class="ct2">90 dias de plano</div><div class="cb">Fundacao, Conteudo/PR e AEO/CRO</div></div>
+</div>
+<div style="margin-top:24px;"><div class="cbdg" style="font-size:14px;padding:12px 22px;display:inline-block;">Meta: 10.000 visitas organicas/mes + 4% de conversao em conta PJ</div></div>
+<div class="sn2">17</div>
+</div>
+
+</div></div>
+<div class="prog" id="pg"></div>
+<script>
+const slides=document.querySelectorAll('.slide');
+const total=slides.length;
+let cur=0;
+function scale(){const w=document.getElementById('wrap');const sc=Math.min(window.innerWidth/1280,(window.innerHeight-44)/720);w.style.transform='scale('+sc+')';}
+window.addEventListener('resize',scale);scale();
+function go(d){slides[cur].classList.remove('on');cur=Math.max(0,Math.min(total-1,cur+d));slides[cur].classList.add('on');document.getElementById('cur').textContent=cur+1;document.getElementById('bp').disabled=cur===0;document.getElementById('bn').disabled=cur===total-1;document.getElementById('pg').style.width=((cur+1)/total*100)+'%';}
+go(0);
+document.addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key===' ')go(1);if(e.key==='ArrowLeft')go(-1);});
+</script>
+</body>
+</html>
