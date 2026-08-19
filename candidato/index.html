@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Margem de Lucro e Precificação de Produtos | InfinitePay</title>
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Calcule o preço de venda ideal dos seus produtos e sua margem de lucro real de forma simples. Simule custos, despesas e economize com as taxas de cartão da InfinitePay.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://infinitepay.io/ferramentas/calculadora-margem-lucro-precificacao">
+    
+    <!-- Open Graph (Facebook, LinkedIn, etc.) -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://infinitepay.io/ferramentas/calculadora-margem-lucro-precificacao">
+    <meta property="og:title" content="Calculadora de Margem de Lucro e Precificação de Produtos | InfinitePay">
+    <meta property="og:description" content="Calcule o preço de venda ideal dos seus produtos e sua margem de lucro real. Simule custos, despesas e o impacto das taxas de cartão grátis.">
+    <meta property="og:image" content="https://infinitepay.io/assets/images/calculadora-precificacao-og.jpg">
+    <meta property="og:locale" content="pt_BR">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://infinitepay.io/ferramentas/calculadora-margem-lucro-precificacao">
+    <meta name="twitter:title" content="Calculadora de Margem de Lucro e Precificação de Produtos | InfinitePay">
+    <meta name="twitter:description" content="Calcule o preço de venda ideal dos seus produtos e sua margem de lucro real. Simule custos, despesas e economize nas taxas de cartão.">
+    <meta name="twitter:image" content="https://infinitepay.io/assets/images/calculadora-precificacao-og.jpg">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Style Link -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Schema JSON-LD for WebApplication -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebApplication",
+      "name": "Calculadora de Margem de Lucro e Precificação de Produtos",
+      "url": "https://infinitepay.io/ferramentas/calculadora-margem-lucro-precificacao",
+      "image": "https://infinitepay.io/assets/images/calculadora-precificacao-og.jpg",
+      "description": "Calculadora gratuita para empreendedores calcularem o preço de venda ideal de mercadorias, margem de lucro e markup divisor.",
+      "applicationCategory": "BusinessApplication, FinanceApplication",
+      "operatingSystem": "All",
+      "browserRequirements": "Requires JavaScript. Requires HTML5.",
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "BRL"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "InfinitePay",
+        "url": "https://infinitepay.io",
+        "logo": "https://infinitepay.io/assets/images/logo.png"
+      }
+    }
+    </script>
+
+    <!-- Schema JSON-LD for FAQPage (SEO/AEO Rich Snippet) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Como calcular a margem de lucro de um produto?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Para calcular a margem de lucro líquida de um produto, subtraia todos os custos e despesas operacionais do preço de venda final. Divida o valor do lucro pelo preço de venda e multiplique por 100 para obter a porcentagem de margem líquida."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Qual é a diferença entre margem de lucro e markup?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A margem de lucro calcula a porcentagem de lucro contida no preço de venda final (que nunca passa de 100%). Já o markup é um multiplicador aplicado sobre o custo de compra do produto para definir o preço de venda (podendo ser superior a 100%)."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Por que incluir taxas de cartão na precificação?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "As taxas de cartão e meios de pagamento são custos variáveis diretos que incidem sobre cada venda. Se não forem contabilizadas no preço de venda, elas consumirão diretamente a sua margem de lucro líquida."
+          }
+        }
+      ]
+    }
+    </script>
+</head>
+<body>
+
+    <!-- Header Navigation -->
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <span class="logo-bold">infinite</span><span class="logo-light">pay</span>
+                <span class="badge">Ferramenta Grátis</span>
+            </div>
+            <a href="https://infinitepay.io" class="btn-secondary-sm" target="_blank" rel="noopener">Conhecer a InfinitePay</a>
+        </div>
+    </header>
+
+    <!-- Hero / Intro Section -->
+    <main class="main-content">
+        <section class="hero-section">
+            <div class="container">
+                <h1 class="hero-title">Calculadora de Margem de Lucro e Precificação de Produtos</h1>
+                <p class="hero-subtitle">Descubra o preço de venda ideal para seus produtos considerando seus custos de compra, despesas fixas, taxas de cartão e a margem de lucro que deseja colocar no bolso.</p>
+            </div>
+        </section>
+
+        <!-- Interactive Tool Interface -->
+        <section class="calculator-section" id="calculadora-app">
+            <div class="container calculator-grid">
+                
+                <!-- Inputs Box -->
+                <div class="calc-panel inputs-panel">
+                    <h2 class="panel-title">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M12 6V18M6 12H18" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Insira os Dados do Produto
+                    </h2>
+                    
+                    <form class="calc-form" onsubmit="event.preventDefault();">
+                        
+                        <!-- Input 1: Custo do Produto -->
+                        <div class="input-group">
+                            <label for="input-cost">Custo de Aquisição (CMV)</label>
+                            <span class="label-hint">Quanto você pagou pelo produto ou matéria-prima</span>
+                            <div class="input-wrapper currency-input">
+                                <span class="prefix">R$</span>
+                                <input type="number" id="input-cost" placeholder="0,00" min="0.01" step="0.01" value="50.00" required>
+                            </div>
+                        </div>
+
+                        <!-- Input 2: Despesas Fixas / Variáveis -->
+                        <div class="input-group">
+                            <label for="input-expenses">Despesas Operacionais (%)</label>
+                            <span class="label-hint">Aluguel, luz, embalagem, frete, impostos, etc. por venda</span>
+                            <div class="input-wrapper percent-input">
+                                <input type="number" id="input-expenses" placeholder="0" min="0" max="99" value="15" required>
+                                <span class="suffix">%</span>
+                            </div>
+                        </div>
+
+                        <!-- Input 3: Margem Desejada -->
+                        <div class="input-group">
+                            <label for="input-profit">Margem de Lucro Líquida Desejada (%)</label>
+                            <span class="label-hint">A porcentagem do preço final que será seu lucro real</span>
+                            <div class="input-wrapper percent-input">
+                                <input type="number" id="input-profit" placeholder="0" min="0" max="99" value="20" required>
+                                <span class="suffix">%</span>
+                            </div>
+                        </div>
+
+                        <!-- Input 4: Taxas de Cartão -->
+                        <div class="input-group">
+                            <label for="input-card-tax">Taxa da sua Maquininha Atual (%)</label>
+                            <span class="label-hint">Taxa de cartão de crédito/débito que você paga hoje</span>
+                            <div class="input-wrapper percent-input">
+                                <input type="number" id="input-card-tax" placeholder="0.00" min="0" max="99" step="0.01" value="4.99" required>
+                                <span class="suffix">%</span>
+                            </div>
+                            
+                            <!-- Preset Buttons for InfinitePay comparison -->
+                            <div class="presets-container">
+                                <span class="presets-title">Usar taxas da InfinitePay:</span>
+                                <div class="presets-buttons">
+                                    <button type="button" class="preset-btn" data-rate="1.38">Débito (1,38%)</button>
+                                    <button type="button" class="preset-btn" data-rate="3.16">Crédito à Vista (3,16%)</button>
+                                    <button type="button" class="preset-btn" data-rate="9.90">Crédito 12x (9,90%)</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+
+                <!-- Outputs / Results Box -->
+                <div class="calc-panel results-panel">
+                    <h2 class="panel-title">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9 12L11 14L15 10M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        Preço Sugerido & Distribuição
+                    </h2>
+                    
+                    <div id="results-error" class="results-error hidden">
+                        <p class="error-msg">⚠️ A soma das despesas operacionais, taxa de cartão e margem desejada não pode atingir ou ultrapassar 100%. Reduza os valores para calcular.</p>
+                    </div>
+
+                    <div id="results-display" class="results-display">
+                        
+                        <div class="price-sugestion">
+                            <span class="price-label">Preço de Venda Sugerido</span>
+                            <div class="price-value" id="res-price">R$ 81,97</div>
+                            <div class="markup-info">Markup Divisor: <span id="res-divisor">0,6100</span> | Multiplicador: <span id="res-multi">1,64x</span></div>
+                        </div>
+
+                        <!-- Bar chart distribution breakdown of selling price -->
+                        <div class="breakdown-container">
+                            <h3 class="breakdown-title">Distribuição do Preço de Venda</h3>
+                            
+                            <div class="bar-chart">
+                                <div class="bar-segment seg-cost" id="bar-cost" style="width: 61%;"></div>
+                                <div class="bar-segment seg-expenses" id="bar-expenses" style="width: 15%;"></div>
+                                <div class="bar-segment seg-tax" id="bar-tax" style="width: 4.99%;"></div>
+                                <div class="bar-segment seg-profit" id="bar-profit" style="width: 20%;"></div>
+                            </div>
+                            
+                            <div class="legend-grid">
+                                <div class="legend-item">
+                                    <span class="dot cost"></span>
+                                    <span class="leg-label">Custo do Produto:</span>
+                                    <span class="leg-val" id="res-cost-val">R$ 50,00 (61,0%)</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="dot expenses"></span>
+                                    <span class="leg-label">Despesas:</span>
+                                    <span class="leg-val" id="res-expenses-val">R$ 12,30 (15,0%)</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="dot tax"></span>
+                                    <span class="leg-label">Taxa Cartão (Sua Taxa):</span>
+                                    <span class="leg-val" id="res-tax-val">R$ 4,09 (4,99%)</span>
+                                </div>
+                                <div class="legend-item">
+                                    <span class="dot profit"></span>
+                                    <span class="leg-label">Lucro Líquido:</span>
+                                    <span class="leg-val" id="res-profit-val">R$ 16,39 (20,0%)</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Business Integration Call To Action -->
+                        <div class="cta-integration">
+                            <div class="cta-header">
+                                <span class="cta-badge">Compare & Economize</span>
+                                <h3 class="cta-title">Quer lucrar mais vendendo pelo mesmo preço?</h3>
+                            </div>
+                            <p class="cta-desc">Com a taxa de **3,16%** de Crédito à Vista da InfinitePay (em vez dos seus <span id="res-compare-current-rate">4,99</span>%), você economiza dinheiro direto em cada transação!</p>
+                            
+                            <div class="comparison-bar">
+                                <div class="comp-box competitor">
+                                    <span class="comp-label">Taxa Paga Outros:</span>
+                                    <span class="comp-val" id="res-comp-others">R$ 4,09</span>
+                                </div>
+                                <div class="comp-box infinitepay">
+                                    <span class="comp-label">Taxa Paga InfinitePay:</span>
+                                    <span class="comp-val" id="res-comp-ip">R$ 2,59</span>
+                                </div>
+                            </div>
+
+                            <div class="savings-highlight">
+                                Economia de <span class="savings-amount" id="res-savings-value">R$ 1,50</span> por venda!
+                            </div>
+                            
+                            <a href="https://infinitepay.io" class="btn-primary" target="_blank" rel="noopener">Criar Conta PJ e Economizar Já</a>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Informative / Content Section (SEO semantic reinforcement) -->
+        <section class="content-section">
+            <div class="container content-container">
+                <div class="content-text">
+                    <h2>Como calcular a precificação ideal do seu produto?</h2>
+                    <p>Precificar um produto de forma correta é vital para garantir que sua empresa gere receitas suficientes para cobrir custos e, mais importante, dar lucro real. Muitos empreendedores cometem o erro de apenas dobrar o valor de custo, desconsiderando as taxas de maquininha de cartão e as pequenas despesas variáveis (embalagem, frete, impostos).</p>
+                    
+                    <h3>A diferença entre Margem de Lucro e Markup</h3>
+                    <p>Embora pareçam sinônimos, a margem de lucro e o markup são indicadores financeiros calculados de formas diferentes:</p>
+                    <ul>
+                        <li><strong>Margem de Lucro</strong>: É um percentual calculado de "trás para frente" a partir do preço final de venda. Ela indica quanto sobrou em caixa a cada venda realizada após o pagamento de todas as despesas.</li>
+                        <li><strong>Markup</strong>: É um multiplicador aplicado diretamente sobre o custo bruto da mercadoria. Ele diz quanto você precisa adicionar ao custo para chegar ao preço ideal de venda.</li>
+                    </ul>
+
+                    <h3>Por que a taxa de cartão de crédito precisa estar na calculadora?</h3>
+                    <p>Ao realizar uma venda por cartão, o valor da transação não entra integralmente in sua conta. A administradora da maquininha cobra uma porcentagem. Se a sua margem de lucro desejada for de 15% e a sua taxa de cartão for de 4,99%, você estará abrindo mão de quase um terço do seu lucro líquido para a operadora de pagamentos se não repassar essa despesa no preço de venda.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section (AEO optimized) -->
+        <section class="faq-section">
+            <div class="container faq-container">
+                <h2 class="faq-section-title">Perguntas Frequentes sobre Precificação</h2>
+                
+                <div class="faq-grid">
+                    <div class="faq-item">
+                        <h3 class="faq-question">Como funciona a fórmula do Markup Divisor?</h3>
+                        <p class="faq-answer">O Markup Divisor é calculado subtraindo de 100% (preço final de venda) todas as porcentagens de despesas operacionais, impostos, taxas de transação e a margem de lucro que você deseja obter. A fórmula é: <code>Markup Divisor = 100% - (Despesas % + Taxa Cartão % + Margem %)</code>. Divida o custo original de aquisição por este resultado em formato decimal para achar o preço ideal.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">Qual a margem de lucro considerada saudável para o comércio?</h3>
+                        <p class="faq-answer">Uma margem de lucro líquida saudável varia de acordo com o segmento de atuação. Para o comércio varejista tradicional, margens entre 15% e 25% são comuns. No setor de serviços, a margem líquida costuma ser maior, flutuando entre 30% e 50%, devido aos menores custos de matéria-prima física.</p>
+                    </div>
+
+                    <div class="faq-item">
+                        <h3 class="faq-question">Como as taxas da InfinitePay ajudam na margem de lucro?</h3>
+                        <p class="faq-answer">Como a InfinitePay possui taxas significativamente menores do que a média das concorrentes no mercado, você reduz as despesas de intermediação financeira por transação. Isso faz com que você precise repassar menos custos ao cliente final (mantendo o preço competitivo) ou simplesmente aumente a margem de lucro que sobra no seu caixa por venda.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container footer-container">
+            <p>&copy; 2026 InfinitePay. Todos os direitos reservados. CloudWalk Inc.</p>
+            <p class="footer-small">Os cenários, marcas comparadas e dados de concorrência contidos nesta calculadora representam simulações realistas e fictícias extraídas para fins informativos e analíticos.</p>
+        </div>
+    </footer>
+
+    <!-- App Script -->
+    <script src="app.js"></script>
+</body>
+</html>
