@@ -58,7 +58,114 @@ Identificamos um **cluster de alto volume, baixa dificuldade (KD baixo) e grande
 
 ---
 
-## 3. Fit de Negócio: Integração com Produtos e Taxas Reais da InfinitePay
+## 3. Metodologia: Pipeline de Análise Exploratória dos Dados
+
+Para transformar os três CSVs brutos do Ahrefs em inteligência acionável, seguimos um pipeline estruturado em quatro etapas sequenciais. Cada etapa está documentada e reproduzível via script Python (`gerar_clusters_excel.py`) e na planilha `analise_clusters_seo.xlsx`.
+
+---
+
+### 3.1. Etapa 1 — Agrupamento Semântico (Clustering e Tagging)
+
+**O que fizemos:** Criamos uma coluna `Cluster` nas 409 palavras-chave do `organic-keywords.csv`, classificando cada termo em um grupo temático com base em correspondência de substrings semânticas.
+
+**Como funciona na prática:**
+
+```
+Keyword: "como precificar um produto"
+  → Contém "precifica" → Cluster: "Precificacao e Markup"
+
+Keyword: "calculadora imc"
+  → Contém "calculadora imc" → Cluster: "Ferramentas Genericas - Descartado"
+
+Keyword: "fluxo de caixa"
+  → Contém "fluxo de caixa" → Cluster: "Gestao Financeira"
+```
+
+A taxonomia final resultou em **23 clusters**, cobrindo desde os grupos alvo (precificação, margem) até os descartados (CLT, ferramentas sem fit) e os auxiliares (MEI, fiscal, antecipação de recebíveis).
+
+> **Decisão metodológica:** Usamos correspondência por substring e não NLP/embeddings porque o dataset é pequeno (409 linhas) e as keywords em português têm padrões lexicais muito previsíveis. A abordagem é mais rápida, transparente e auditável — ideal para um entregável de case.
+
+**Resultado na planilha:** Aba `Keywords por Cluster` — cada keyword com sua tag visível, ordenada por volume dentro do cluster.
+
+---
+
+### 3.2. Etapa 2 — Mapeamento da SERP: Concorrentes e Tipos de Página
+
+**O que fizemos:** Para cada cluster, cruzamos a coluna `domain` do `organic-keywords.csv` com o `top-pages.csv` para identificar quais domínios aparecem, com quantas keywords e que tipo de página eles usam para rankear.
+
+**Classificação de tipo de página por URL:**
+
+| Padrão na URL | Tipo de Página | Implicação Competitiva |
+| :--- | :--- | :--- |
+| `/blog/`, `/artigo/`, `/conteudo/` | Conteúdo editorial estático | Vulnerável a uma ferramenta interativa |
+| `/calculadora`, `/ferramenta/`, `/app/` | Ferramenta interativa | Concorrente direto — analisar UX e Schema |
+| `/categoria/`, `/produto/` | Página de produto/e-commerce | Intenção transacional — diferente do nosso alvo |
+| `/` ou página raiz | Home institucional | Domínio rankeando pela autoridade — barreira alta |
+
+**Achado crítico no cluster de Precificação:**
+
+Todos os domínios líderes (`giroloja.com.br`, `lojafacil.com.br`, `vendamais.com.br`) rankeiam com URLs do tipo `/blog/` — **conteúdo editorial sem ferramenta interativa**. Nenhum concorrente relevante oferece uma calculadora funcional. Isso confirma a brecha.
+
+```
+Cluster: Precificacao e Markup
+  giroloja.com.br     → /blog/como-precificar-um-produto      (texto estático)
+  lojafacil.com.br    → /blog/precificacao-o-que-e            (texto estático)
+  vendamais.com.br    → /blog/precificacao-de-produtos        (texto estático)
+  infinitepay.io      → /materiais/calculadora-de-margem      (posição 67, zero tráfego)
+```
+
+**Resultado na planilha:** Aba `Dominios por Cluster` — domínios por cluster com volume captado, melhor posição e URL principal.
+
+---
+
+### 3.3. Etapa 3 — Cálculo de Densidade e Dificuldade Real
+
+**O que fizemos:** Para cada cluster, calculamos o **KD médio, mínimo e máximo** a partir das keywords classificadas, e cruzamos com o perfil de autoridade dos domínios dominantes (DR do `organic-competitors.csv`).
+
+**Por que o KD médio sozinho não basta:**
+
+O KD do Ahrefs é calculado baseado no perfil de backlinks das páginas no Top 10. Um KD baixo em um cluster dominado por portais com DR 80+ é diferente de um KD baixo com concorrentes de DR 35. Por isso avaliamos os dois juntos:
+
+| Cluster | KD Médio | DR Líder | Diagnóstico Real |
+| :--- | :---: | :---: | :--- |
+| Precificacao e Markup | **5,2** | DR 54 (lojafacil) | Oportunidade real — InfinitePay DR 68 supera o líder |
+| Maquininha e Pagamentos | **28,4** | DR 80 (PagSeguro) | Dificuldade real maior que o KD sugere |
+| Pix | **19,1** | DR 85 (Banco Central) | KD subestimado — concorrentes institucionais |
+| Calc. CLT e RH | **24,8** | DR 72 (dinheirocerto) | Descartado — KD alto + sem fit |
+
+> **Conclusão:** O cluster de Precificação é o único onde o KD baixo é **genuíno** — os concorrentes têm autoridade menor que a InfinitePay e usam apenas conteúdo estático.
+
+**Resultado na planilha:** Aba `Resumo por Cluster` — colunas KD Médio / Mín / Máx coloridas (verde < 10, âmbar 10–20, vermelho > 20).
+
+---
+
+### 3.4. Etapa 4 — Matriz de Priorização: Volume × Esforço
+
+**O que fizemos:** Calculamos um **Score de Oportunidade** para cada cluster usando a fórmula:
+
+```
+Score = Volume Total do Cluster ÷ (KD Médio + 1)
+```
+
+Quanto maior o score, maior o retorno de tráfego por unidade de esforço de rankeamento.
+
+**Top 5 clusters por Score (excluindo branded e descartados):**
+
+| Pos. | Cluster | Volume | KD Médio | Score | Decisão |
+| :---: | :--- | :---: | :---: | :---: | :--- |
+| 1 | **Precificacao e Markup** | 50.700 | 5,2 | **9.750** | Ferramenta principal — hub page |
+| 2 | **Margem de Lucro** | 9.800 | 7,1 | **1.280** | Hub da calculadora + artigos satélites |
+| 3 | **Margem de Contribuicao** | 2.400 | 9,0 | **240** | Artigo satélite prioritário |
+| 4 | **Desconto e Negociacao** | 340 | 6,0 | **49** | Artigo satélite de apoio |
+| 5 | **Custos e CMV** | 890 | 11,0 | **74** | Artigo satélite de base |
+
+> **Leitura da matriz:** O cluster de Precificação tem score **7,6× maior** que o segundo colocado. Isso é o sinal mais claro possível de onde concentrar o esforço: uma única ferramenta interativa captura mais tráfego qualificado do que os outros cinco clusters juntos.
+
+**Resultado na planilha:** Aba `Ranking de Oportunidades` — clusters rankeados por score, com coloração verde nos maiores valores.
+
+---
+
+## 4. Fit de Negócio: Integração com Produtos e Taxas Reais da InfinitePay
 
 A precificação de um produto é composta por:
 $$\text{Preço de Venda} = \text{Custo de Aquisição} + \text{Despesas Operacionais} + \text{Margem de Lucro} + \mathbf{Taxas\ de\ Meios\ de\ Pagamento}$$
@@ -78,7 +185,7 @@ Ao digitar suas despesas, o empreendedor percebe que as **taxas de maquininha e 
 
 ---
 
-## 4. O que o Dataset NÃO Permite Concluir (Limitações Críticas dos Dados)
+## 5. O que o Dataset NÃO Permite Concluir (Limitações Críticas dos Dados)
 
 Seguindo a boa prática de Growth analítico, destacamos as limitações do dataset do Ahrefs:
 
@@ -89,7 +196,7 @@ Seguindo a boa prática de Growth analítico, destacamos as limitações do data
 
 ---
 
-## 5. Arquitetura da Solução e Estratégia Técnica da Página
+## 6. Arquitetura da Solução e Estratégia Técnica da Página
 
 A ferramenta foi desenhada e construída não apenas como um script de cálculo, mas como um **ativo completo de aquisição e conversão orgânica**.
 
@@ -113,7 +220,7 @@ A ferramenta foi desenhada e construída não apenas como um script de cálculo,
 
 ---
 
-## 6. Roadmap de SEO e AEO para os Primeiros 90 Dias
+## 7. Roadmap de SEO e AEO para os Primeiros 90 Dias
 
 Para transformar a ferramenta em um canal recorrente de aquisição, executaremos o plano em **3 fases de 30 dias** com responsáveis, entregas e métricas claras.
 
@@ -204,7 +311,7 @@ Para transformar a ferramenta em um canal recorrente de aquisição, executaremo
 
 ---
 
-## 7. Roteiro do Vídeo de Apresentação (Pitch de até 10 Minutos)
+## 8. Roteiro do Vídeo de Apresentação (Pitch de até 10 Minutos)
 
 Guia prático para a gravação da apresentação para o Líder de Growth:
 
@@ -219,6 +326,6 @@ Guia prático para a gravação da apresentação para o Líder de Growth:
 
 ---
 
-## 8. Conclusão
+## 9. Conclusão
 
 A **Calculadora de Margem de Lucro e Precificação de Produtos** atende rigorosamente a todos os critérios estabelecidos pela liderança: fundamentação sólida e rastreável nos dados do Ahrefs, alta relevância para o cliente ideal da InfinitePay, diferenciação frente ao conteúdo estático dos concorrentes e um plano claro de ramp de SEO/AEO para os primeiros 90 dias.
