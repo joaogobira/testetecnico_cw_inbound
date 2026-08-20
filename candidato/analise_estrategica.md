@@ -115,44 +115,92 @@ A ferramenta foi desenhada e construída não apenas como um script de cálculo,
 
 ## 6. Roadmap de SEO e AEO para os Primeiros 90 Dias
 
-Para transformar a ferramenta em um canal recorrente de aquisição, executaremos o plano em 3 etapas de 30 dias:
+Para transformar a ferramenta em um canal recorrente de aquisição, executaremos o plano em **3 fases de 30 dias** com responsáveis, entregas e métricas claras.
 
-```mermaid
-gantt
-    title Roadmap de 90 Dias - Ramp de SEO & AEO
-    dateFormat  YYYY-MM-DD
-    section Fase 1 (1-30d)
-    Publicação da Página & Setup Técnico       :a1, 2026-09-01, 15d
-    Redirecionamento 301 da URL Antiga         :a2, 2026-09-05, 10d
-    Linkagem Interna no Blog InfinitePay       :a3, 2026-09-15, 15d
-    section Fase 2 (31-60d)
-    Publicação dos 6 Artigos do Topic Cluster  :b1, 2026-10-01, 20d
-    Campanha de Digital PR & Parcerias MEI     :b2, 2026-10-10, 20d
-    Otimização de Snippets e CTR na SERP       :b3, 2026-10-15, 15d
-    section Fase 3 (61-90d)
-    Auditoria e Otimização para AEO (LLMs)     :c1, 2026-11-01, 15d
-    Testes A/B de CRO nos CTAs de Conversão    :c2, 2026-11-10, 20d
-    Revisão de Metas e Expansão de Features    :c3, 2026-11-20, 10d
-```
+---
 
-### Fase 1 (Dias 1 a 30): Fundação Técnica, Lançamento e Linkagem Interna
-* **Ações**:
-  - Deploy da página na URL `/ferramentas/calculadora-margem-lucro-precificacao`.
-  - Configurar Redirect 301 de `/materiais/calculadora-de-margem` para a nova URL, herdando histórico e eliminando a URL antiga que estava em posição 67.
-  - Inserir banners e links contextuais em todos os artigos de finanças e gestão do blog atual da InfinitePay apontando para a nova ferramenta.
-* **Métricas de Sucesso**: 100% de indexação no Google Search Console; Core Web Vitals com pontuação > 95 no PageSpeed; Zero erros no teste de Schema JSON-LD.
+### 🗓️ Cronograma Geral — Set a Nov/2026
 
-### Fase 2 (Dias 31 a 60): Ativação de Topic Clusters e Link Building (Digital PR)
-* **Ações**:
-  - Publicação dos 6 artigos satélites no blog, interligados entre si e apontando para a calculadora interativa com âncoras exatas e contextuais.
-  - Divulgação da ferramenta em portais de empreendedorismo, finanças e entidades de apoio a microempresas (ex: Sebrae, portais de contabilidade e MEIs).
-* **Métricas de Sucesso**: Conquista de backlinks de ao menos 10 domínios com DR > 40; Entrada das palavras-chave secundárias no Top 10 da SERP.
+| Semana | Período | 🟢 Fase 1 — Fundação | 🟡 Fase 2 — Conteúdo & PR | 🔵 Fase 3 — AEO & CRO |
+| :---: | :---: | :--- | :--- | :--- |
+| **S1** | 01/09 – 07/09 | ██ Deploy + Schema | | |
+| **S2** | 08/09 – 14/09 | ██ Redirect 301 | | |
+| **S3** | 15/09 – 21/09 | ██ Internal Links | | |
+| **S4** | 22/09 – 30/09 | ██ Validação GSC | | |
+| **S5** | 01/10 – 07/10 | | ██ Artigos 1–3 | |
+| **S6** | 08/10 – 14/10 | | ██ Artigos 4–6 | |
+| **S7** | 15/10 – 21/10 | | ██ Digital PR MEI | |
+| **S8** | 22/10 – 31/10 | | ██ CTR Snippets | |
+| **S9** | 01/11 – 07/11 | | | ██ Auditoria AEO |
+| **S10** | 08/11 – 14/11 | | | ██ Testes A/B CTA |
+| **S11** | 15/11 – 21/11 | | | ██ Monitor LLMs |
+| **S12** | 22/11 – 30/11 | | | ██ Review & Expand |
 
-### Fase 3 (Dias 61 a 90): Otimização para Motores de IA (AEO) e Otimização de Conversão (CRO)
-* **Ações**:
-  - Monitoramento de citações da ferramenta nas respostas do Gemini, Perplexity e ChatGPT.
-  - Testes A/B nos botões de ação (CTA) para testar ofertas como "Vender no Celular com Taxa Zero" vs "Simular Maquininha InfiniteSmart".
-* **Métricas de Sucesso**: Mais de 10.000 visitas orgânicas mensais; Taxa de conversão de visitantes em leads/aberturas de conta PJ acima de 4%.
+---
+
+### 🟢 Fase 1 (Dias 1 – 30): Fundação Técnica & Lançamento
+
+> **Objetivo:** Indexar com qualidade máxima e herdar autoridade da URL antiga.
+
+| # | Ação | Prazo | Owner | Impacto |
+| :---: | :--- | :---: | :---: | :---: |
+| 1.1 | Deploy em `/ferramentas/calculadora-margem-lucro-precificacao` | Dia 1 | Dev/SEO | 🔴 Crítico |
+| 1.2 | Redirect 301 de `/materiais/calculadora-de-margem` → nova URL (herda posição 67) | Dia 5 | Dev | 🔴 Crítico |
+| 1.3 | Validar Schema `WebApplication` + `FAQPage` no Rich Results Test | Dia 7 | SEO | 🟠 Alto |
+| 1.4 | Internal linking em artigos de finanças do blog InfinitePay | Dia 15 | Content | 🟠 Alto |
+| 1.5 | Monitoramento inicial no Google Search Console (impressões e cliques) | Dia 30 | SEO | 🟡 Médio |
+
+**✅ Critérios de Saída da Fase 1:**
+- PageSpeed Score > 95 (Mobile e Desktop)
+- Página indexada pelo Google Search Console
+- Zero erros no teste de Schema JSON-LD
+- Redirect 301 funcionando sem loops
+
+---
+
+### 🟡 Fase 2 (Dias 31 – 60): Topic Cluster & Digital PR
+
+> **Objetivo:** Construir autoridade temática com 6 artigos satélites e conquistar backlinks de qualidade.
+
+| # | Ação | Volume-Alvo | Prazo | Owner |
+| :---: | :--- | :---: | :---: | :---: |
+| 2.1 | *O que é Markup e o Markup Divisor* | `markup` — 9.900/mês | Dia 35 | Content |
+| 2.2 | *Markup vs Margem de Lucro: Qual usar?* | `markup ou margem` — 390/mês | Dia 38 | Content |
+| 2.3 | *Margem de Contribuição: Como calcular* | `margem de contribuicao` — 2.400/mês | Dia 42 | Content |
+| 2.4 | *Como calcular o lucro real de um produto* | `como calcular lucro` — 1.900/mês | Dia 46 | Content |
+| 2.5 | *Como dar desconto sem perder o lucro* | `desconto sem perder lucro` — 340/mês | Dia 50 | Content |
+| 2.6 | *CMV e Custos Fixos: Como calcular* | Guia base de estrutura de custos | Dia 55 | Content |
+| 2.7 | Digital PR: Sebrae, portais de MEI, contabilidade | Meta: +10 backlinks DR > 40 | Dia 60 | PR/Growth |
+| 2.8 | Otimização de title tags e meta description para CTR na SERP | | Dia 60 | SEO |
+
+**✅ Critérios de Saída da Fase 2:**
+- 6 artigos satélites publicados e interligados com a calculadora
+- ≥ 10 novos backlinks de domínios com DR > 40
+- Keywords secundárias do cluster entrado no Top 10 da SERP
+
+---
+
+### 🔵 Fase 3 (Dias 61 – 90): AEO, CRO e Expansão
+
+> **Objetivo:** Otimizar para motores de IA (LLMs), aumentar taxa de conversão e revisar metas.
+
+| # | Ação | Ferramenta | Prazo | Owner |
+| :---: | :--- | :---: | :---: | :---: |
+| 3.1 | Auditoria AEO: testar citações no Gemini, Perplexity e ChatGPT | Manual + Prompts | Dia 65 | SEO/Growth |
+| 3.2 | Adicionar/refinar blocos de resposta direta ≤ 250 chars nas seções-chave | Editor de conteúdo | Dia 68 | Content |
+| 3.3 | Testes A/B nos CTAs: *"Abrir Conta Grátis"* vs *"Simular com InfiniteTap"* | Google Optimize | Dia 70 | CRO |
+| 3.4 | Monitorar posições das 11 keywords-alvo via GSC semanalmente | Google Search Console | Contínuo | SEO |
+| 3.5 | Revisão de metas: atingiu 10k visitas? Expandir features (ex: Simulador de Parcelamento) | Analytics | Dia 90 | Growth Lead |
+
+**✅ Critérios de Saída da Fase 3 (Meta Final):**
+
+| Métrica | Meta | Ferramenta de Medição |
+| :--- | :---: | :--- |
+| Visitas orgânicas mensais | **≥ 10.000** | Google Search Console |
+| Posição nas keywords principais | **Top 3** | Ahrefs / GSC |
+| Taxa de conversão (visitante → conta PJ) | **≥ 4%** | Google Analytics / Mixpanel |
+| Citações em respostas de IA (Gemini, GPT) | **≥ 5 citações/mês** | Monitoramento manual |
+| Backlinks conquistados (DR > 40) | **≥ 10 domínios** | Ahrefs |
 
 ---
 
