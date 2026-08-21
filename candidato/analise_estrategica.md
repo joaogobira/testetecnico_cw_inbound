@@ -281,10 +281,15 @@ Para transformar a ferramenta em um canal recorrente de aquisição e a maior re
 | 2.8 | **Distribuição Multicanal & Sinais Sociais** | Amplificação de Marca e Co-ocorrência em LLMs | Pílulas em YouTube Shorts, TikTok, Instagram e LinkedIn | Dia 60 | Social/Content |
 | 2.9 | **Flywheel de Conteúdos Satélites → Hub** | Tráfego Cruzado e Fortalecimento da Ferramenta | Links contextuais em 100% dos formatos multicanal | Dia 60 | Growth |
 
-**✅ Critérios de Saída da Fase 2:**
-- 6 artigos satélites publicados, interligados e convertidos em pílulas multicanal (vídeos curtos e carrosséis)
-- ≥ 10 menções/backlinks em domínios de referência do setor (DR > 40)
-- Presença em Featured Snippets do Google e aumento de sinais de co-ocorrência da marca InfinitePay com "precificação"
+**✅ Critérios de Saída e Metas de Performance da Fase 2 (Mês 2 / Dia 60):**
+
+| Métrica de Validação (Mês 2) | Meta Intermediária | O que indica para o Growth |
+| :--- | :---: | :--- |
+| **Tráfego Orgânico Mensal** | **≥ 3.500 visitas/mês** | Validação da indexação dos satélites e ganho de posições Top 10 |
+| **Taxa de Ativação na Ferramenta** | **≥ 60% dos visitantes** | Usuário realmente insere custos e simula o preço (utilidade comprovada) |
+| **CTR nos CTAs / Comparador de Taxas** | **≥ 8% de cliques** | Descoberta da economia de taxas gerando interesse comercial |
+| **Taxa de Conversão (Visitante → Conta PJ)** | **≥ 2,5% (~85 contas/mês)** | Primeiras conversões comerciais diretas originadas da ferramenta |
+| **Artigos Satélites & Backlinks** | **6 satélites + ≥10 backlinks** | Topic cluster 100% ativo com autoridade transferida para o Hub |
 
 ---
 
@@ -300,15 +305,15 @@ Para transformar a ferramenta em um canal recorrente de aquisição e a maior re
 | 3.4 | Monitoramento semanal de rankings tradicionais e menções de IA | Métricas de Citação e Rankings SERP | GSC + Planilha de Monitoramento IA | Contínuo | SEO |
 | 3.5 | Revisão de metas e expansão (ex: Simulador de Frete + Parcelamento) | Expansão de Product-Led Growth | Analytics / Dados de Uso | Dia 90 | Growth Lead |
 
-**✅ Critérios de Saída da Fase 3 (Metas de Sucesso Consolidadas):**
+**✅ Critérios de Saída e Metas Consolidadas da Fase 3 (Mês 3 / Dia 90):**
 
-| Métrica | Meta | Prática / Alinhamento | Ferramenta de Medição |
+| Métrica Consolidada (Mês 3) | Meta Final | Prática / Alinhamento | Ferramenta de Medição |
 | :--- | :---: | :--- | :--- |
-| **Visitas orgânicas mensais** | **≥ 10.000** | SEO Tradicional (Base de Crawling) | Google Search Console |
-| **Posição nas keywords principais** | **Top 3** | Dominância SERP no Cluster | Ahrefs / GSC |
+| **Visitas orgânicas mensais** | **≥ 10.000** | SEO Tradicional (Rampa completa do Cluster) | Google Search Console |
+| **Posição nas keywords principais** | **Top 3** | Dominância SERP no Cluster de Precificação | Ahrefs / GSC |
 | **Taxa de Citação em Motores de IA** | **≥ 5 citações semanais** | AEO / GEO (Gemini, Perplexity, GPT) | Auditoria de Prompts Padronizados |
-| **Taxa de conversão (visitante → conta PJ)** | **≥ 4%** | CRO & Fit de Produto | Google Analytics / Mixpanel |
-| **Menções e Backlinks de Autoridade (DR > 40)** | **≥ 10 domínios** | Sinais Externos de Entidade | Ahrefs |
+| **Taxa de conversão (visitante → conta PJ)** | **≥ 4,0% (~400 contas/mês)** | CRO maduro & Fit de Produto | Google Analytics / Mixpanel |
+| **Menções e Backlinks de Autoridade (DR > 40)** | **≥ 10 domínios** | Sinais Externos de Entidade & Digital PR | Ahrefs |
 
 ---
 
