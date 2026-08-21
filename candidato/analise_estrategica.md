@@ -308,18 +308,26 @@ Para transformar a ferramenta em um canal recorrente de aquisição e a maior re
 | **Posição nas keywords principais** | **Top 3** | Dominância SERP no Cluster | Ahrefs / GSC |
 | **Taxa de Citação em Motores de IA** | **≥ 5 citações semanais** | AEO / GEO (Gemini, Perplexity, GPT) | Auditoria de Prompts Padronizados |
 | **Taxa de conversão (visitante → conta PJ)** | **≥ 4%** | CRO & Fit de Produto | Google Analytics / Mixpanel |
-| **Menções e Backlinks de Autoridade (DR > 40)** | **≥ 10 domínios** | Sinais Externos de Entidade | Ahrefs |e Search Console | Contínuo | SEO |
-| 3.5 | Revisão de metas: atingiu 10k visitas? Expandir features (ex: Simulador de Parcelamento) | Analytics | Dia 90 | Growth Lead |
+| **Menções e Backlinks de Autoridade (DR > 40)** | **≥ 10 domínios** | Sinais Externos de Entidade | Ahrefs |
 
-**✅ Critérios de Saída da Fase 3 (Meta Final):**
+---
 
-| Métrica | Meta | Ferramenta de Medição |
-| :--- | :---: | :--- |
-| Visitas orgânicas mensais | **≥ 10.000** | Google Search Console |
-| Posição nas keywords principais | **Top 3** | Ahrefs / GSC |
-| Taxa de conversão (visitante → conta PJ) | **≥ 4%** | Google Analytics / Mixpanel |
-| Citações em respostas de IA (Gemini, GPT) | **≥ 5 citações/mês** | Monitoramento manual |
-| Backlinks conquistados (DR > 40) | **≥ 10 domínios** | Ahrefs |
+### 7.4. Framework de Rastreamento e Atribuição de Tráfego de IA (AEO/GEO)
+
+Para mensurar com precisão se a ferramenta está sendo recomendada e trazendo tráfego através de motores de Inteligência Artificial, estabelecemos 3 pilares de mensuração:
+
+1. **Rastreamento de Tráfego de Referência no Google Analytics 4 (GA4):**
+   * Criação do canal personalizado **"AI Referral"** filtrando acessos diretos oriundos dos domínios de chatbots:
+     * `chatgpt.com` e `android-app://com.openai.chatgpt` (OpenAI / ChatGPT Search)
+     * `perplexity.ai` (Perplexity)
+     * `gemini.google.com` (Google Gemini)
+     * `claude.ai` (Anthropic Claude)
+     * `copilot.microsoft.com` (Microsoft Copilot)
+2. **Monitoramento de Google AI Overviews no Google Search Console (GSC):**
+   * Acompanhamento de impressões, cliques e CTR nas URLs do Topic Cluster exibidas nos blocos gerados por IA no topo da SERP do Google.
+3. **Auditoria Periódica de Prompts (Share of Voice em IA):**
+   * Execução semanal de uma bateria de **20 prompts de compra/decisão** (ex: *"qual a melhor calculadora de margem para loja?"*, *"como calcular preço de venda com taxa de cartão?"*).
+   * A meta de **≥ 5 citações semanais** representa uma taxa de recomendação de pelo menos 25% a 30% nas auditorias de controle, indicando que a InfinitePay virou a resposta canônica dos modelos para o nicho de precificação.
 
 ---
 
