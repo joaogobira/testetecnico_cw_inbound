@@ -187,12 +187,12 @@ Ao digitar suas despesas, o empreendedor percebe que as **taxas de maquininha e 
 
 ## 5. O que o Dataset NÃO Permite Concluir (Limitações Críticas dos Dados)
 
-Seguindo a boa prática de Growth analítico, destacamos as limitações do dataset do Ahrefs:
+Seguindo a boa prática de Growth analítico, destacamos as limitações técnicas e metodológicas do dataset do Ahrefs:
 
-1. **Ausência de Métricas de Conversão e LTV**: O Ahrefs nos mostra volume de busca e tráfego estimado, mas não nos diz qual é a taxa de conversão em clientes pagantes ou o valor do ciclo de vida (LTV) gerado por cada palavra-chave.
-2. **Amostra Reduzida e Fragmentada**: O relatório contém ~400 linhas consolidadas. Domínios consolidados possuem dezenas de milhares de palavras rankeando. Isso significa que termos de cauda longa (Long Tail) altamente específicos não estão mapeados no export.
-3. **Falta de Sazonalidade Temporal**: O recorte cobre 6 meses agregados, ocultando oscilações de busca típicas de datas sazonais (como Black Friday, Natal, início de ano e viradas fiscais).
-4. **Estimativa de Tráfego Imprecisa para Recursos Interativos**: O tráfego do Ahrefs é inferido a partir de taxas de clique padrão (CTR) da SERP orgânica. Calculadoras e ferramentas interativas costumam ter CTR muito superior à média quando ocupam Featured Snippets e rich elements.
+1. **Amostra Reduzida e Fragmentada**: O relatório contém ~400 linhas consolidadas. Domínios consolidados possuem dezenas de milhares de palavras rankeando. Isso significa que termos de cauda longa (Long Tail) altamente específicos não estão mapeados no export, limitando a descoberta de outras potenciais ferramentas secundárias a partir apenas deste recorte.
+2. **Falta de Sazonalidade Temporal**: O recorte cobre 6 meses agregados, ocultando oscilações de busca típicas de datas sazonais (como Black Friday, Natal, início de ano e viradas fiscais). Isso nos impede de identificar picos pontuais onde lojistas buscam saber qual o desconto saudável a conceder em datas comemorativas.
+3. **Estimativa de Tráfego Imprecisa para Recursos Interativos**: O tráfego do Ahrefs é inferido a partir de taxas de clique padrão (CTR) da SERP orgânica de artigos e links azuis. Calculadoras e ferramentas interativas costumam ter CTR e engajamento muito superiores quando ocupam Featured Snippets e rich elements.
+4. **Ponto Cego de IA e AEO (Zero Dados de LLMs)**: O dataset reflete exclusivamente o Google tradicional e não monitora se as URLs dos concorrentes são recomendadas em respostas de IA generativa (ChatGPT Search, Perplexity, Gemini), exigindo uma metodologia própria de auditoria de prompts.
 
 ---
 
@@ -200,11 +200,15 @@ Seguindo a boa prática de Growth analítico, destacamos as limitações do data
 
 A ferramenta foi desenhada e construída não apenas como um script de cálculo, mas como um **ativo completo de aquisição e conversão orgânica**.
 
-### 5.1. Arquitetura de Informação (Hub & Spoke / Topic Cluster)
+### 6.1. Arquitetura de Informação (Hub & Spoke / Topic Cluster)
 * **Página Pilar (Hub)**: `/ferramentas/calculadora-margem-lucro-precificacao` (A ferramenta interativa que centraliza a autoridade).
 * **Páginas Satélites de Suporte (Blog Clusters)**:
   1. *O que é Markup e como aplicar o Markup Divisor no comércio* (`markup` - 9.900 buscas)
   2. *Markup vs Margem de Lucro: Qual a diferença e qual usar?* (`markup ou margem` - 390 buscas)
+  3. *Margem de Contribuição: Como calcular e precificar corretamente* (`margem de contribuicao` - 2.400 buscas)
+  4. *Como calcular o lucro real de um produto passo a passo* (`como calcular lucro de um produto` - 1.900 buscas)
+  5. *Como dar desconto sem perder o lucro do seu produto* (`como dar desconto sem perder lucro` - 340 buscas)
+  6. *CMV, Custos Fixos e Ponto de Equilíbrio: Como calcular* (Guia base de custos e break-even)
 ### 6.2. Otimizações de SEO On-Page, AEO e GEO (Diretrizes de Busca por IA em 2026)
 
 Em 2026, o tráfego orgânico não depende apenas dos "links azuis" tradicionais, mas de **conquistar citações diretas, menções de marca e resumos sintetizados em motores de busca generativos (Gemini, ChatGPT Search, Perplexity e Google AI Overviews)**. A página foi desenhada atendendo rigorosamente às 8 práticas fundamentais de AEO/GEO:
