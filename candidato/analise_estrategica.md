@@ -205,98 +205,109 @@ A ferramenta foi desenhada e construída não apenas como um script de cálculo,
 * **Páginas Satélites de Suporte (Blog Clusters)**:
   1. *O que é Markup e como aplicar o Markup Divisor no comércio* (`markup` - 9.900 buscas)
   2. *Markup vs Margem de Lucro: Qual a diferença e qual usar?* (`markup ou margem` - 390 buscas)
-  3. *Margem de Contribuição: Como calcular e precificar corretamente* (`margem de contribuicao` - 2.400 buscas)
-  4. *Como calcular o lucro real de um produto passo a passo* (`como calcular lucro de um produto` - 1.900 buscas)
-  5. *Como dar desconto sem perder o lucro do seu produto* (`como dar desconto sem perder lucro` - 340 buscas)
-  6. *CMV e Custos Fixos: Como calcular para não ter prejuízo* (Guia de estruturação de custos)
+### 6.2. Otimizações de SEO On-Page, AEO e GEO (Diretrizes de Busca por IA em 2026)
 
-### 5.2. Otimizações de SEO On-Page e AEO (Otimização para Motores de IA)
-* **Semântica HTML5**: Uso rigoroso de `<header>`, `<main>`, `<section>`, `<article>`, `<h1>`, `<h2>`, `<fieldset>` e `<legend>`, facilitando a leitura por crawlers e leitores de tela.
-* **Core Web Vitals Impecáveis**: Desenvolvida em Vanilla HTML, CSS e JavaScript sem dependência de bibliotecas pesadas. Carregamento instantâneo (< 0.5s), First Contentful Paint imediato e Zero Cumulative Layout Shift (CLS).
-* **Dados Estruturados Schema.org**:
-  - `WebApplication`: Permite que o Google reconheça a página como um aplicativo interativo e exiba snippets avançados.
-  - `FAQPage`: Perguntas e respostas formatadas para capturar espaço na SERP e alimentar buscas por IA (Gemini, ChatGPT Search, Perplexity).
-* **Respostas em Blocos AEO (Answer Engine Optimization)**: Textos e definições com respostas concisas de até 250 caracteres no topo das seções explicativas, aumentando a probabilidade de citação direta em resumos de Inteligência Artificial.
+Em 2026, o tráfego orgânico não depende apenas dos "links azuis" tradicionais, mas de **conquistar citações diretas, menções de marca e resumos sintetizados em motores de busca generativos (Gemini, ChatGPT Search, Perplexity e Google AI Overviews)**. A página foi desenhada atendendo rigorosamente às 8 práticas fundamentais de AEO/GEO:
+
+1. **Formatação Answer-First (Direto ao Ponto):** Cada seção explicativa e pergunta do FAQ inicia com uma resposta direta e autoexplicativa de 1 a 2 frases (até 250 caracteres), facilitando a extração imediata por parsers de RAG e motores de IA.
+2. **Estrutura Escaneável & Tabelas Comparativas:** Uso de tabelas nativas de comparação (Taxas de Mercado vs. InfinitePay), listas ordenadas e blocos de FAQ estruturados que espelham exatamente os prompts dos usuários.
+3. **Densidade Factual & Precisão de Dados:** Inclusão de números exatos (ex: *Débito 0,75%*, *Pix 0%*, fórmulas matemáticas reais e prazos D+0/D+1), aumentando o score de confiabilidade na recuperação por RAG.
+4. **Foco no Prompt Intent (Intenção de Compra/Ação):** Foco em termos de alta intenção comercial e operacional (*"como calcular margem com taxa de cartão"*), em vez de volume genérico sem conversão.
+5. **Clareza de Entidade (Entity Authority):** Marcação Schema.org detalhada conectando a entidade **InfinitePay** (`Organization`) aos seus produtos satélites (`WebApplication`, `InfiniteTap`, `InfiniteSmart`, `Conta PJ`).
+6. **Menções em Terceiros & Digital PR:** Conquista de citações e backlinks em portais de autoridade de terceiros (Sebrae, portais MEI, blogs contábeis), que têm peso desproporcional nas recomendações de LLMs.
+7. **Fundação Técnica Impecável:** HTML5 semântico puro, sem dependências de scripts pesados, garantindo rastreamento instantâneo pelo Googlebot e crawlers de IA (GPTBot, PerplexityBot).
+8. **Métricas de Citação em IA:** Monitoramento da taxa de citação da marca dentro dos motores generativos além do CTR tradicional.
 
 ---
 
-## 7. Roadmap de SEO e AEO para os Primeiros 90 Dias
+## 7. Roadmap de SEO e AEO/GEO para os Primeiros 90 Dias
 
-Para transformar a ferramenta em um canal recorrente de aquisição, executaremos o plano em **3 fases de 30 dias** com responsáveis, entregas e métricas claras.
+Para transformar a ferramenta em um canal recorrente de aquisição e a maior referência em IA sobre precificação, executaremos o plano em **3 fases de 30 dias** com responsáveis, entregas e métricas claras.
 
 ---
 
 ### 🗓️ Cronograma Geral — Set a Nov/2026
 
-| Semana | Período | 🟢 Fase 1 — Fundação | 🟡 Fase 2 — Conteúdo & PR | 🔵 Fase 3 — AEO & CRO |
+| Semana | Período | 🟢 Fase 1 — Fundação & Entidade | 🟡 Fase 2 — Conteúdo, PR & GEO | 🔵 Fase 3 — AEO, CRO & Citações |
 | :---: | :---: | :--- | :--- | :--- |
-| **S1** | 01/09 – 07/09 | ██ Deploy + Schema | | |
-| **S2** | 08/09 – 14/09 | ██ Redirect 301 | | |
-| **S3** | 15/09 – 21/09 | ██ Internal Links | | |
-| **S4** | 22/09 – 30/09 | ██ Validação GSC | | |
-| **S5** | 01/10 – 07/10 | | ██ Artigos 1–3 | |
-| **S6** | 08/10 – 14/10 | | ██ Artigos 4–6 | |
-| **S7** | 15/10 – 21/10 | | ██ Digital PR MEI | |
-| **S8** | 22/10 – 31/10 | | ██ CTR Snippets | |
-| **S9** | 01/11 – 07/11 | | | ██ Auditoria AEO |
-| **S10** | 08/11 – 14/11 | | | ██ Testes A/B CTA |
-| **S11** | 15/11 – 21/11 | | | ██ Monitor LLMs |
-| **S12** | 22/11 – 30/11 | | | ██ Review & Expand |
+| **S1** | 01/09 – 07/09 | ██ Deploy + Schema WebApp | | |
+| **S2** | 08/09 – 14/09 | ██ Redirect 301 + Canonical | | |
+| **S3** | 15/09 – 21/09 | ██ Internal Linking no Blog | | |
+| **S4** | 22/09 – 30/09 | ██ Validação GSC & Bing Webmaster | | |
+| **S5** | 01/10 – 07/10 | | ██ Artigos 1–3 (Answer-First) | |
+| **S6** | 08/10 – 14/10 | | ██ Artigos 4–6 (Factual Density) | |
+| **S7** | 15/10 – 21/10 | | ██ Digital PR MEI & Portais Finanças | |
+| **S8** | 22/10 – 31/10 | | ██ CTR Snippets & FAQ Rich Results | |
+| **S9** | 01/11 – 07/11 | | | ██ Auditoria AEO (Gemini, Perplexity, GPT) |
+| **S10** | 08/11 – 14/11 | | | ██ Testes A/B CTA & Otimização RAG |
+| **S11** | 15/11 – 21/11 | | | ██ Monitor de Citações de Entidade |
+| **S12** | 22/11 – 30/11 | | | ██ Review de Metas & Expansão de Features |
 
 ---
 
-### 🟢 Fase 1 (Dias 1 – 30): Fundação Técnica & Lançamento
+### 🟢 Fase 1 (Dias 1 – 30): Fundação Técnica, Crawlability & Entidade
 
-> **Objetivo:** Indexar com qualidade máxima e herdar autoridade da URL antiga.
+> **Objetivo:** Indexação técnica perfeita nos índices tradicionais (Google/Bing) que alimentam os LLMs em tempo real e consolidação de entidade.
 
-| # | Ação | Prazo | Owner | Impacto |
-| :---: | :--- | :---: | :---: | :---: |
-| 1.1 | Deploy em `/ferramentas/calculadora-margem-lucro-precificacao` | Dia 1 | Dev/SEO | 🔴 Crítico |
-| 1.2 | Redirect 301 de `/materiais/calculadora-de-margem` → nova URL (herda posição 67) | Dia 5 | Dev | 🔴 Crítico |
-| 1.3 | Validar Schema `WebApplication` + `FAQPage` no Rich Results Test | Dia 7 | SEO | 🟠 Alto |
-| 1.4 | Internal linking em artigos de finanças do blog InfinitePay | Dia 15 | Content | 🟠 Alto |
-| 1.5 | Monitoramento inicial no Google Search Console (impressões e cliques) | Dia 30 | SEO | 🟡 Médio |
+| # | Ação | Prática AEO/GEO | Prazo | Owner | Impacto |
+| :---: | :--- | :--- | :---: | :---: | :---: |
+| 1.1 | Deploy em `/ferramentas/calculadora-margem-lucro-precificacao` | Fundação Técnica (HTML5 + Core Web Vitals) | Dia 1 | Dev/SEO | 🔴 Crítico |
+| 1.2 | Redirect 301 de `/materiais/calculadora-de-margem` → nova URL | Herança de autoridade e histórico de posição | Dia 5 | Dev | 🔴 Crítico |
+| 1.3 | Validar Schema `WebApplication`, `Organization` e `FAQPage` | Clareza de Entidade (Entity Signals) | Dia 7 | SEO | 🟠 Alto |
+| 1.4 | Internal linking estratégico em 15+ artigos do blog InfinitePay | Arquitetura Topic Cluster & Co-ocorrência | Dia 15 | Content | 🟠 Alto |
+| 1.5 | Monitoramento de indexação via GSC e Bing Webmaster Tools | Rastreabilidade para Bots de IA (GPTBot, Perplexity) | Dia 30 | SEO | 🟡 Médio |
 
 **✅ Critérios de Saída da Fase 1:**
 - PageSpeed Score > 95 (Mobile e Desktop)
-- Página indexada pelo Google Search Console
-- Zero erros no teste de Schema JSON-LD
-- Redirect 301 funcionando sem loops
+- Página indexada e sem erros de rastreio no Google e Bing
+- Validação 100% limpa no teste de Rich Results da Schema.org
+- Redirect 301 auditado sem loops
 
 ---
 
-### 🟡 Fase 2 (Dias 31 – 60): Topic Cluster & Digital PR
+### 🟡 Fase 2 (Dias 31 – 60): Topic Cluster, Densidade Factual & Digital PR
 
-> **Objetivo:** Construir autoridade temática com 6 artigos satélites e conquistar backlinks de qualidade.
+> **Objetivo:** Construir autoridade temática com artigos orientados a Answer-First e conquistar citações em portais externos de alta autoridade.
 
-| # | Ação | Volume-Alvo | Prazo | Owner |
-| :---: | :--- | :---: | :---: | :---: |
-| 2.1 | *O que é Markup e o Markup Divisor* | `markup` — 9.900/mês | Dia 35 | Content |
-| 2.2 | *Markup vs Margem de Lucro: Qual usar?* | `markup ou margem` — 390/mês | Dia 38 | Content |
-| 2.3 | *Margem de Contribuição: Como calcular* | `margem de contribuicao` — 2.400/mês | Dia 42 | Content |
-| 2.4 | *Como calcular o lucro real de um produto* | `como calcular lucro` — 1.900/mês | Dia 46 | Content |
-| 2.5 | *Como dar desconto sem perder o lucro* | `desconto sem perder lucro` — 340/mês | Dia 50 | Content |
-| 2.6 | *CMV e Custos Fixos: Como calcular* | Guia base de estrutura de custos | Dia 55 | Content |
-| 2.7 | Digital PR: Sebrae, portais de MEI, contabilidade | Meta: +10 backlinks DR > 40 | Dia 60 | PR/Growth |
-| 2.8 | Otimização de title tags e meta description para CTR na SERP | | Dia 60 | SEO |
+| # | Ação | Prática AEO/GEO | Volume-Alvo | Prazo | Owner |
+| :---: | :--- | :--- | :---: | :---: | :---: |
+| 2.1 | *O que é Markup e o Markup Divisor* | Formatação Answer-First + Fórmulas | `markup` — 9.900/mês | Dia 35 | Content |
+| 2.2 | *Markup vs Margem de Lucro: Qual usar?* | Tabela comparativa e definição direta | `markup ou margem` — 390/mês | Dia 38 | Content |
+| 2.3 | *Margem de Contribuição: Como calcular* | Densidade Factual + Exemplo Prático | `margem de contribuicao` — 2.400/mês | Dia 42 | Content |
+| 2.4 | *Como calcular o lucro real de um produto* | Prompt Intent focado no Comerciante | `como calcular lucro` — 1.900/mês | Dia 46 | Content |
+| 2.5 | *Como dar desconto sem perder o lucro* | Estrutura escaneável (passo a passo) | `desconto sem perder lucro` — 340/mês | Dia 50 | Content |
+| 2.6 | *CMV, Custos Fixos e Ponto de Equilíbrio* | Dados estruturados de cálculo financeiro | Base do cluster (~4.590/mês) | Dia 55 | Content |
+| 2.7 | Campanha Digital PR: Sebrae, portais MEI, contabilidade | Menções em Terceiros & Sinais Externos de Entidade | Meta: +10 domínios DR > 40 | Dia 60 | PR/Growth |
+| 2.8 | Otimização de title tags e meta description para CTR | Testes de Snippet na SERP tradicional | — | Dia 60 | SEO |
 
 **✅ Critérios de Saída da Fase 2:**
-- 6 artigos satélites publicados e interligados com a calculadora
-- ≥ 10 novos backlinks de domínios com DR > 40
-- Keywords secundárias do cluster entrado no Top 10 da SERP
+- 6 artigos satélites com respostas diretas no topo publicados e interligados
+- ≥ 10 menções/backlinks em domínios de referência do setor (DR > 40)
+- Presença em Featured Snippets do Google para as perguntas do cluster
 
 ---
 
-### 🔵 Fase 3 (Dias 61 – 90): AEO, CRO e Expansão
+### 🔵 Fase 3 (Dias 61 – 90): Auditoria AEO/GEO, Citações em LLMs e CRO
 
-> **Objetivo:** Otimizar para motores de IA (LLMs), aumentar taxa de conversão e revisar metas.
+> **Objetivo:** Maximizar a taxa de recomendação em buscas generativas por IA, calibrar CRO e expandir funcionalidades.
 
-| # | Ação | Ferramenta | Prazo | Owner |
-| :---: | :--- | :---: | :---: | :---: |
-| 3.1 | Auditoria AEO: testar citações no Gemini, Perplexity e ChatGPT | Manual + Prompts | Dia 65 | SEO/Growth |
-| 3.2 | Adicionar/refinar blocos de resposta direta ≤ 250 chars nas seções-chave | Editor de conteúdo | Dia 68 | Content |
-| 3.3 | Testes A/B nos CTAs: *"Abrir Conta Grátis"* vs *"Simular com InfiniteTap"* | Google Optimize | Dia 70 | CRO |
-| 3.4 | Monitorar posições das 11 keywords-alvo via GSC semanalmente | Google Search Console | Contínuo | SEO |
+| # | Ação | Prática AEO/GEO | Ferramenta / Método | Prazo | Owner |
+| :---: | :--- | :--- | :--- | :---: | :---: |
+| 3.1 | Auditoria de Citações em IA (Gemini, Perplexity, ChatGPT Search) | Benchmark de Citação e Respostas Generativas | Bateria de 20 Prompts Reais de Compra | Dia 65 | SEO/Growth |
+| 3.2 | Refinamento de blocos de resposta direta (≤ 250 chars) com base nos prompts | Otimização para RAG e Sintetizadores de IA | Editor de Conteúdo / CMS | Dia 68 | Content |
+| 3.3 | Testes A/B nos CTAs: *"Abrir Conta Grátis"* vs *"Simular com InfiniteTap"* | CRO & Ativação de Tráfego Orgânico | Ferramenta de Teste A/B | Dia 70 | CRO |
+| 3.4 | Monitoramento semanal de rankings tradicionais e menções de IA | Métricas de Citação e Rankings SERP | GSC + Planilha de Monitoramento IA | Contínuo | SEO |
+| 3.5 | Revisão de metas e expansão (ex: Simulador de Frete + Parcelamento) | Expansão de Product-Led Growth | Analytics / Dados de Uso | Dia 90 | Growth Lead |
+
+**✅ Critérios de Saída da Fase 3 (Metas de Sucesso Consolidadas):**
+
+| Métrica | Meta | Prática / Alinhamento | Ferramenta de Medição |
+| :--- | :---: | :--- | :--- |
+| **Visitas orgânicas mensais** | **≥ 10.000** | SEO Tradicional (Base de Crawling) | Google Search Console |
+| **Posição nas keywords principais** | **Top 3** | Dominância SERP no Cluster | Ahrefs / GSC |
+| **Taxa de Citação em Motores de IA** | **≥ 5 citações semanais** | AEO / GEO (Gemini, Perplexity, GPT) | Auditoria de Prompts Padronizados |
+| **Taxa de conversão (visitante → conta PJ)** | **≥ 4%** | CRO & Fit de Produto | Google Analytics / Mixpanel |
+| **Menções e Backlinks de Autoridade (DR > 40)** | **≥ 10 domínios** | Sinais Externos de Entidade | Ahrefs |e Search Console | Contínuo | SEO |
 | 3.5 | Revisão de metas: atingiu 10k visitas? Expandir features (ex: Simulador de Parcelamento) | Analytics | Dia 90 | Growth Lead |
 
 **✅ Critérios de Saída da Fase 3 (Meta Final):**
