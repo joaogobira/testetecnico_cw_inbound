@@ -340,21 +340,13 @@ Para mensurar com precisão se a ferramenta está sendo recomendada e trazendo t
 
 ---
 
-## 8. Roteiro do Vídeo de Apresentação (Pitch de até 10 Minutos)
+## 8. Conclusão e Próximos Passos
 
-Guia prático para a gravação da apresentação para o Líder de Growth:
+A **Calculadora de Margem de Lucro e Precificação de Produtos** atende rigorosamente a todos os critérios estratégicos estabelecidos pela liderança de Growth da InfinitePay:
 
-| Minutagem | Bloco do Vídeo | O que mostrar na tela | Mensagem Principal a Transmitir |
-| :--- | :--- | :--- | :--- |
-| **0:00 - 1:30** | **Abertura & O Desafio** | • Slide de apresentação ou visão geral do case | "O desafio era encontrar uma oportunidade de ferramenta gratuita para acelerar a aquisição orgânica da InfinitePay. Analisamos os dados do Ahrefs e encontramos uma oportunidade com fit perfeito." |
-| **1:30 - 3:30** | **Os Dados do Ahrefs & A Brecha** | • Mostrar a planilha `organic-keywords.csv` nas linhas 47 (`precificacao` - 14.8k) e 42 (`markup` - 9.9k).<br>• Mostrar a linha 392 de `top-pages.csv` com a posição 67 da URL antiga. | "O cluster de precificação soma mais de 50 mil buscas mensais com KD médio menor que 8. Os concorrentes usam apenas textos estáticos em blogs, enquanto a InfinitePay tinha uma página antiga sem tráfego. Com nosso DR 68, podemos dominar o Top 1." |
-| **3:30 - 5:00** | **O Fit de Negócio com a InfinitePay** | • Exibir a matriz de produtos (InfiniteTap, InfiniteSmart, Link de Pagamento, Conta PJ e Rendimento CDI). | "Precificar um produto exige calcular as taxas do cartão. Na calculadora, o comerciante insere os custos e vê na hora como as menores taxas da InfinitePay aumentam seu lucro real no bolso." |
-| **5:00 - 7:00** | **A Página & Simulação ao Vivo** | • Abrir o `index.html` no navegador.<br>• Fazer simulação com Custo R$ 50, Despesas 15%, Margem 25% e taxa concorrente de 4,99%. | "A página é 100% responsiva, calcula preço de venda, markup, margem líquida e lucro em reais, exibindo em tempo real o comparador de economia com a InfinitePay." |
-| **7:00 - 8:30** | **Estrutura Técnica de SEO & AEO** | • Inspecionar o código mostrando as meta tags, Schema `WebApplication` e `FAQPage`. | "A página foi desenhada para Core Web Vitals ultrarrápidos e estruturada com Schema.org para capturar Rich Snippets e ser citada por motores de busca baseados em IA como Gemini e ChatGPT." |
-| **8:30 - 10:00** | **Roadmap de 90 Dias & Conclusão** | • Exibir o diagrama do Roadmap de 90 dias. | "Com 3 fases bem definidas (Fundação e 301, Clusters de Conteúdo + PR e AEO/CRO), nosso objetivo é atingir 10 mil visitas mensais e converter o tráfego em novos clientes para o ecossistema InfinitePay." |
+1. **Fundamentação Sólida e Rastreável:** Cada premissa parte de evidências concretas extraídas dos relatórios do Ahrefs (mais de 50.000 buscas/mês com KD médio < 8).
+2. **Alta Relevância e Qualificação de ICP:** Foco exclusivo no comerciante e microempreendedor que precisa calcular despesas e taxas de intermediação financeira.
+3. **Diferenciação Competitiva Real:** Superação do formato de texto estático dos concorrentes através de um ativo interativo, rápido e preparado para a era da busca por IA (AEO/GEO).
+4. **Roadmap Executivo Claro:** Plano faseado em 90 dias com metas intermediárias de tráfego, funil de conversão e mecanismos modernos de atribuição via GA4 e Search Console.
 
----
-
-## 9. Conclusão
-
-A **Calculadora de Margem de Lucro e Precificação de Produtos** atende rigorosamente a todos os critérios estabelecidos pela liderança: fundamentação sólida e rastreável nos dados do Ahrefs, alta relevância para o cliente ideal da InfinitePay, diferenciação frente ao conteúdo estático dos concorrentes e um plano claro de ramp de SEO/AEO para os primeiros 90 dias.
+A oportunidade está pronta para ser executada, posicionando a InfinitePay como a referência máxima no ecossistema de precificação e adquirindo milhares de novos clientes orgânicos de forma previsível e escalável.
