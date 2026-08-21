@@ -265,25 +265,26 @@ Para transformar a ferramenta em um canal recorrente de aquisição e a maior re
 
 ---
 
-### 🟡 Fase 2 (Dias 31 – 60): Topic Cluster, Densidade Factual & Digital PR
+### 🟡 Fase 2 (Dias 31 – 60): Topic Cluster, Distribuição Multicanal & Digital PR
 
-> **Objetivo:** Construir autoridade temática com artigos orientados a Answer-First e conquistar citações em portais externos de alta autoridade.
+> **Objetivo:** Construir autoridade temática com artigos Answer-First, gerar sinais sociais multicanal e conquistar citações de alta autoridade para IA.
 
-| # | Ação | Prática AEO/GEO | Volume-Alvo | Prazo | Owner |
-| :---: | :--- | :--- | :---: | :---: | :---: |
+| # | Ação | Prática AEO/GEO | Volume-Alvo / Canal | Prazo | Owner |
+| :---: | :--- | :--- | :--- | :---: | :---: |
 | 2.1 | *O que é Markup e o Markup Divisor* | Formatação Answer-First + Fórmulas | `markup` — 9.900/mês | Dia 35 | Content |
 | 2.2 | *Markup vs Margem de Lucro: Qual usar?* | Tabela comparativa e definição direta | `markup ou margem` — 390/mês | Dia 38 | Content |
 | 2.3 | *Margem de Contribuição: Como calcular* | Densidade Factual + Exemplo Prático | `margem de contribuicao` — 2.400/mês | Dia 42 | Content |
 | 2.4 | *Como calcular o lucro real de um produto* | Prompt Intent focado no Comerciante | `como calcular lucro` — 1.900/mês | Dia 46 | Content |
 | 2.5 | *Como dar desconto sem perder o lucro* | Estrutura escaneável (passo a passo) | `desconto sem perder lucro` — 340/mês | Dia 50 | Content |
 | 2.6 | *CMV, Custos Fixos e Ponto de Equilíbrio* | Dados estruturados de cálculo financeiro | Base do cluster (~4.590/mês) | Dia 55 | Content |
-| 2.7 | Campanha Digital PR: Sebrae, portais MEI, contabilidade | Menções em Terceiros & Sinais Externos de Entidade | Meta: +10 domínios DR > 40 | Dia 60 | PR/Growth |
-| 2.8 | Otimização de title tags e meta description para CTR | Testes de Snippet na SERP tradicional | — | Dia 60 | SEO |
+| 2.7 | **Campanha de Digital PR Estruturada** | Menções em Terceiros & Sinais Externos de Entidade | Parcerias: Sebrae, portais MEI, portais contábeis | Dia 60 | PR/Growth |
+| 2.8 | **Distribuição Multicanal & Sinais Sociais** | Amplificação de Marca e Co-ocorrência em LLMs | Pílulas em YouTube Shorts, TikTok, Instagram e LinkedIn | Dia 60 | Social/Content |
+| 2.9 | **Flywheel de Conteúdos Satélites → Hub** | Tráfego Cruzado e Fortalecimento da Ferramenta | Links contextuais em 100% dos formatos multicanal | Dia 60 | Growth |
 
 **✅ Critérios de Saída da Fase 2:**
-- 6 artigos satélites com respostas diretas no topo publicados e interligados
+- 6 artigos satélites publicados, interligados e convertidos em pílulas multicanal (vídeos curtos e carrosséis)
 - ≥ 10 menções/backlinks em domínios de referência do setor (DR > 40)
-- Presença em Featured Snippets do Google para as perguntas do cluster
+- Presença em Featured Snippets do Google e aumento de sinais de co-ocorrência da marca InfinitePay com "precificação"
 
 ---
 
