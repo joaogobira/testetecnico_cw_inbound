@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ferramenta de Crescimento Orgânico — InfinitePay</title>
+<title>Estratégia de Aquisição Orgânica — InfinitePay</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap');
 
@@ -14,8 +14,8 @@
     --green-dim: #00a844;
     --black: #0a0a0a;
     --surface: #111111;
-    --surface2: #1a1a1a;
-    --border: #2a2a2a;
+    --surface2: #161616;
+    --border: #262626;
     --text: #f5f5f5;
     --muted: #888;
     --amber: #f59e0b;
@@ -26,7 +26,7 @@
   html, body {
     width: 100%; height: 100%;
     background: var(--black);
-    font-family: 'Inter', system-ui, sans-serif;
+    font-family: 'Inter', system-ui, -apple-system, sans-serif;
     color: var(--text);
     overflow: hidden;
   }
@@ -36,187 +36,177 @@
   .slide {
     position: absolute; inset: 0;
     display: flex; flex-direction: column;
-    padding: 56px 72px;
+    padding: 52px 68px;
     opacity: 0; pointer-events: none;
-    transition: opacity .35s ease;
+    transition: opacity .35s ease, transform .35s ease;
+    transform: translateY(6px);
   }
-  .slide.active { opacity: 1; pointer-events: all; }
+  .slide.active { opacity: 1; pointer-events: all; transform: translateY(0); }
 
   /* ── Typography ── */
   .label {
-    font-size: 11px; font-weight: 600; letter-spacing: .12em;
+    font-size: 11px; font-weight: 700; letter-spacing: .12em;
     text-transform: uppercase; color: var(--green);
-    margin-bottom: 16px;
+    margin-bottom: 12px; display: flex; align-items: center; gap: 8px;
   }
-  h1 { font-size: clamp(36px, 5vw, 64px); font-weight: 800; line-height: 1.05; }
-  h2 { font-size: clamp(26px, 3.5vw, 44px); font-weight: 700; line-height: 1.1; }
-  h3 { font-size: clamp(18px, 2vw, 26px); font-weight: 600; }
-  p  { font-size: clamp(14px, 1.4vw, 18px); line-height: 1.65; color: #ccc; }
-  .lead { font-size: clamp(16px, 1.8vw, 22px); color: #ddd; line-height: 1.5; }
+  .label::before {
+    content: ""; display: inline-block; width: 8px; height: 8px;
+    background: var(--green); border-radius: 50%;
+  }
+
+  h1 { font-size: clamp(34px, 4.8vw, 60px); font-weight: 800; line-height: 1.05; letter-spacing: -0.02em; }
+  h2 { font-size: clamp(24px, 3.2vw, 40px); font-weight: 700; line-height: 1.1; letter-spacing: -0.01em; }
+  h3 { font-size: clamp(16px, 1.8vw, 22px); font-weight: 600; }
+  p  { font-size: clamp(13px, 1.3vw, 16px); line-height: 1.6; color: #ccc; }
+  .lead { font-size: clamp(15px, 1.6vw, 20px); color: #ddd; line-height: 1.5; }
 
   /* ── Accent spans ── */
   .hi  { color: var(--green); }
   .dim { color: var(--muted); }
   .tag {
-    display: inline-block; padding: 3px 10px; border-radius: 4px;
-    font-size: 12px; font-weight: 600; letter-spacing: .05em;
-    background: #1a2e1a; color: var(--green); border: 1px solid #2a4a2a;
+    display: inline-block; padding: 3px 8px; border-radius: 4px;
+    font-size: 11px; font-weight: 700; letter-spacing: .04em;
+    background: #152915; color: var(--green); border: 1px solid #234823;
   }
-  .tag.red   { background: #2e1a1a; color: #f87171; border-color: #4a2a2a; }
-  .tag.amber { background: #2e2a1a; color: #fbbf24; border-color: #4a3a1a; }
-  .tag.blue  { background: #1a1e2e; color: #60a5fa; border-color: #1e2a4a; }
+  .tag.red   { background: #2a1515; color: #f87171; border-color: #4a2020; }
+  .tag.amber { background: #2a2215; color: #fbbf24; border-color: #4a381e; }
+  .tag.blue  { background: #151d2a; color: #60a5fa; border-color: #1e2e4a; }
 
   /* ── Nav bar ── */
   .nav {
-    position: fixed; bottom: 28px; left: 50%; transform: translateX(-50%);
+    position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%);
     display: flex; align-items: center; gap: 12px; z-index: 100;
-    background: #161616; border: 1px solid #2a2a2a;
-    padding: 10px 20px; border-radius: 40px;
+    background: #141414; border: 1px solid #282828;
+    padding: 8px 18px; border-radius: 40px; box-shadow: 0 8px 24px rgba(0,0,0,0.6);
   }
   .nav button {
     background: none; border: none; color: #888; cursor: pointer;
-    font-size: 14px; padding: 4px 10px; border-radius: 20px;
+    font-size: 13px; font-weight: 600; padding: 4px 10px; border-radius: 20px;
     transition: all .2s; font-family: inherit;
   }
   .nav button:hover { background: #222; color: #fff; }
-  .nav .counter { font-size: 13px; color: #555; min-width: 52px; text-align: center; }
+  .nav .counter { font-size: 12px; font-weight: 700; color: var(--green); min-width: 54px; text-align: center; }
 
   /* ── Progress bar ── */
   .progress {
     position: fixed; top: 0; left: 0; height: 3px;
-    background: var(--green); transition: width .35s ease;
+    background: var(--green); transition: width .3s ease; z-index: 200;
   }
 
   /* ── Slide logo ── */
   .logo {
-    position: fixed; top: 28px; right: 40px;
-    font-size: 13px; font-weight: 700; letter-spacing: .06em;
-    color: var(--green); opacity: .7;
+    position: fixed; top: 24px; right: 36px;
+    font-size: 13px; font-weight: 800; letter-spacing: .06em;
+    color: var(--green); opacity: .85;
   }
 
   /* ── Layout helpers ── */
-  .cols  { display: grid; gap: 32px; }
+  .cols  { display: grid; gap: 20px; }
   .cols2 { grid-template-columns: 1fr 1fr; }
   .cols3 { grid-template-columns: 1fr 1fr 1fr; }
   .cols-60-40 { grid-template-columns: 60fr 40fr; }
   .cols-40-60 { grid-template-columns: 40fr 60fr; }
-  .center { display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
-  .gap8  { gap: 8px; }
+  .cols-30-70 { grid-template-columns: 32fr 68fr; }
+  .gap12 { gap: 12px; }
   .gap16 { gap: 16px; }
-  .gap24 { gap: 24px; }
+  .gap20 { gap: 20px; }
   .mt8   { margin-top: 8px; }
+  .mt12  { margin-top: 12px; }
   .mt16  { margin-top: 16px; }
+  .mt20  { margin-top: 20px; }
   .mt24  { margin-top: 24px; }
-  .mt32  { margin-top: 32px; }
   .mb8   { margin-bottom: 8px; }
-  .flex  { display: flex; }
-  .flex-col { flex-direction: column; }
-  .items-center { align-items: center; }
-  .justify-between { justify-content: space-between; }
 
   /* ── Cards ── */
   .card {
     background: var(--surface); border: 1px solid var(--border);
-    border-radius: 12px; padding: 24px 28px;
+    border-radius: 10px; padding: 20px 22px;
   }
-  .card-green { border-color: #1a4a2a; background: #0d1f0d; }
-  .card-red   { border-color: #4a1a1a; background: #1f0d0d; }
-  .card-amber { border-color: #4a3a1a; background: #1f180d; }
+  .card-green { border-color: #1a4a2a; background: #0c1c0c; }
+  .card-amber { border-color: #4a3a1a; background: #1c160c; }
 
   /* ── Stat box ── */
   .stat {
-    display: flex; flex-direction: column; gap: 6px;
+    display: flex; flex-direction: column; gap: 4px;
     background: var(--surface2); border: 1px solid var(--border);
-    border-radius: 10px; padding: 20px 24px;
+    border-radius: 8px; padding: 16px 18px;
   }
-  .stat-value { font-size: clamp(28px, 4vw, 48px); font-weight: 800; color: var(--green); }
-  .stat-label { font-size: 13px; color: var(--muted); }
+  .stat-value { font-size: clamp(24px, 3.2vw, 40px); font-weight: 800; color: var(--green); line-height: 1.1; }
+  .stat-label { font-size: 12px; color: var(--muted); }
 
   /* ── Table ── */
-  table { width: 100%; border-collapse: collapse; font-size: clamp(12px, 1.2vw, 14px); }
+  table { width: 100%; border-collapse: collapse; font-size: clamp(11px, 1.1vw, 13px); }
   th {
-    background: #161616; color: var(--muted);
-    font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase;
-    padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border);
+    background: #141414; color: var(--muted);
+    font-size: 11px; font-weight: 700; letter-spacing: .06em; text-transform: uppercase;
+    padding: 8px 12px; text-align: left; border-bottom: 1px solid var(--border);
   }
-  td { padding: 10px 14px; border-bottom: 1px solid #1c1c1c; vertical-align: middle; }
+  td { padding: 8px 12px; border-bottom: 1px solid #1a1a1a; vertical-align: middle; }
   tr:last-child td { border-bottom: none; }
-  tr:hover td { background: #141414; }
+  tr:hover td { background: #131313; }
   .td-right { text-align: right; }
   .td-center { text-align: center; }
 
   /* ── KD pill ── */
   .kd {
-    display: inline-block; padding: 2px 8px; border-radius: 4px;
-    font-size: 12px; font-weight: 700;
+    display: inline-block; padding: 2px 7px; border-radius: 4px;
+    font-size: 11px; font-weight: 700;
   }
-  .kd-low  { background: #0d1f0d; color: #4ade80; border: 1px solid #1a4a2a; }
-  .kd-mid  { background: #1f180d; color: #fbbf24; border: 1px solid #4a3a1a; }
-  .kd-high { background: #1f0d0d; color: #f87171; border: 1px solid #4a1a1a; }
+  .kd-low  { background: #0c1f0c; color: #4ade80; border: 1px solid #1a4a2a; }
+  .kd-mid  { background: #1f170c; color: #fbbf24; border: 1px solid #4a3818; }
+  .kd-high { background: #220c0c; color: #f87171; border: 1px solid #4a1c1c; }
 
-  /* ── Divider ── */
-  hr { border: none; border-top: 1px solid var(--border); margin: 20px 0; }
+  hr { border: none; border-top: 1px solid var(--border); margin: 16px 0; }
 
   /* ── Code block ── */
   .code {
     font-family: 'SF Mono', 'Fira Code', monospace;
-    font-size: 13px; background: #0d0d0d;
-    border: 1px solid #222; border-radius: 8px;
-    padding: 16px 20px; color: #ccc; line-height: 1.7;
+    font-size: 12px; background: #0d0d0d;
+    border: 1px solid #202020; border-radius: 6px;
+    padding: 12px 16px; color: #ccc; line-height: 1.6;
   }
   .code .c-green { color: #4ade80; }
-  .code .c-muted { color: #555; }
+  .code .c-muted { color: #666; }
   .code .c-amber { color: #fbbf24; }
 
   /* ── Roadmap phase boxes ── */
   .phase {
-    border-radius: 10px; padding: 18px 22px;
-    display: flex; flex-direction: column; gap: 10px;
+    border-radius: 8px; padding: 16px 18px;
+    display: flex; flex-direction: column; gap: 8px;
   }
-  .phase-1 { background: #0d1f0d; border: 1px solid #1a4a2a; }
-  .phase-2 { background: #1f180d; border: 1px solid #4a3a1a; }
-  .phase-3 { background: #1a1e2e; border: 1px solid #1e2a4a; }
-  .phase-title { font-weight: 700; font-size: 15px; }
-  .phase-item { font-size: 13px; color: #bbb; padding-left: 14px; position: relative; }
-  .phase-item::before { content: "→"; position: absolute; left: 0; color: #555; }
+  .phase-1 { background: #0c1a0c; border: 1px solid #1a4422; }
+  .phase-2 { background: #1a160c; border: 1px solid #44361a; }
+  .phase-3 { background: #121824; border: 1px solid #1e2c44; }
+  .phase-title { font-weight: 700; font-size: 14px; }
+  .phase-item { font-size: 12px; color: #bbb; padding-left: 12px; position: relative; line-height: 1.45; }
+  .phase-item::before { content: "•"; position: absolute; left: 0; color: var(--green); }
 
-  /* ── Slide-specific ── */
   .hero-bg {
     position: absolute; inset: 0;
-    background: radial-gradient(ellipse at 70% 40%, #0d2e1a 0%, transparent 60%);
+    background: radial-gradient(ellipse at 75% 40%, #0d2e1a 0%, transparent 65%);
     pointer-events: none;
   }
-  .slide-1 { justify-content: flex-end; padding-bottom: 80px; }
-  .number-giant {
-    font-size: clamp(120px, 18vw, 200px); font-weight: 900;
-    color: #1a1a1a; line-height: 1; position: absolute;
-    right: 60px; top: 50%; transform: translateY(-50%);
-    user-select: none; pointer-events: none;
-  }
 
-  /* ── Slide 10 — page decisions ── */
   .decision-row {
-    display: flex; gap: 14px; align-items: flex-start;
-    padding: 14px 0; border-bottom: 1px solid #1c1c1c;
+    display: flex; gap: 12px; align-items: flex-start;
+    padding: 10px 0; border-bottom: 1px solid #1a1a1a;
   }
   .decision-row:last-child { border-bottom: none; }
   .decision-key {
-    min-width: 140px; font-size: 12px; font-weight: 600;
-    color: var(--muted); text-transform: uppercase; letter-spacing: .06em;
-    padding-top: 2px;
+    min-width: 120px; font-size: 11px; font-weight: 700;
+    color: var(--muted); text-transform: uppercase; letter-spacing: .05em;
   }
-  .decision-val { font-size: 14px; color: #ddd; line-height: 1.5; }
+  .decision-val { font-size: 13px; color: #ddd; line-height: 1.45; }
   .decision-val strong { color: var(--green); }
 
-  /* ── Metrics ── */
   .metric-row {
     display: flex; justify-content: space-between; align-items: center;
-    padding: 12px 0; border-bottom: 1px solid #1c1c1c; font-size: 14px;
+    padding: 9px 0; border-bottom: 1px solid #1a1a1a; font-size: 13px;
   }
   .metric-row:last-child { border-bottom: none; }
   .metric-name { color: #ccc; }
   .metric-val { font-weight: 700; color: var(--green); }
-  .metric-tool { font-size: 12px; color: #555; }
+  .metric-tool { font-size: 11px; color: #666; }
 </style>
 </head>
 <body>
@@ -227,489 +217,450 @@
 <div class="deck" id="deck">
 
 <!-- ══════════════════════════════════════════════════════════
-     SLIDE 1 — Título
+     SLIDE 1 — Capa
 ═══════════════════════════════════════════════════════════ -->
 <div class="slide active" id="s1">
   <div class="hero-bg"></div>
-  <div style="flex:1; display:flex; flex-direction:column; justify-content:center; max-width:700px;">
-    <div class="label">Teste Técnico — Growth Marketing</div>
-    <h1>Uma ferramenta gratuita<br>para crescer<br><span class="hi">aquisição orgânica</span></h1>
-    <p class="lead mt24">Análise de dados → Escolha → Página → Roadmap de 90 dias</p>
+  <div style="flex:1; display:flex; flex-direction:column; justify-content:center; max-width:760px;">
+    <div class="label">Teste Técnico · Growth Marketing Inbound</div>
+    <h1>Lançamento de Ferramenta Gratuita para <span class="hi">Aquisição Orgânica</span></h1>
+    <p class="lead mt16">Análise Exploratória de Dados, Defesa Estratégica e Roadmap de Execução SEO / AEO</p>
   </div>
-  <div style="position:absolute; right:72px; bottom:60px; text-align:right;">
-    <p class="dim" style="font-size:13px;">Dataset Ahrefs — Brasil — Últimos 6 meses</p>
-    <p class="dim" style="font-size:13px;">409 keywords · 406 páginas · 14 domínios</p>
+  <div style="position:absolute; right:68px; bottom:48px; text-align:right;">
+    <p class="dim" style="font-size:12px;">Fonte: Dataset Ahrefs (Mercado Brasil / 6 meses)</p>
+    <p class="dim" style="font-size:12px;">409 Keywords · 406 Top Pages · 14 Concorrentes</p>
   </div>
 </div>
 
 <!-- ══════════════════════════════════════════════════════════
-     SLIDE 2 — O Dataset
+     SLIDE 2 — Resumo Executivo (Conclusão & Impacto Primeiro)
 ═══════════════════════════════════════════════════════════ -->
 <div class="slide" id="s2">
-  <div class="label">Ponto de partida</div>
-  <h2>O que o dataset continha</h2>
-  <div class="cols cols3 mt32" style="gap:20px;">
-    <div class="card">
-      <div class="tag blue mb8">organic-competitors.csv</div>
-      <div class="stat-value hi mt16">14</div>
-      <div class="stat-label">domínios concorrentes</div>
-      <hr>
-      <p style="font-size:13px; color:#888; margin-top:8px;">DR, tráfego estimado, keywords em comum vs. exclusivas</p>
+  <div class="label">Visão Executiva · Resumo de Impacto</div>
+  <h2>A Oportunidade &amp; O Resultado Esperado</h2>
+  <div class="cols cols3 mt20" style="gap:16px;">
+    <div class="stat">
+      <div class="stat-value">+50.000</div>
+      <div class="stat-label">Buscas/mês no Cluster de Precificação</div>
     </div>
-    <div class="card">
-      <div class="tag blue mb8">top-pages.csv</div>
-      <div class="stat-value hi mt16">406</div>
-      <div class="stat-label">URLs rankeando</div>
-      <hr>
-      <p style="font-size:13px; color:#888; margin-top:8px;">Tráfego por página, UR, domínios referenciadores, tipo de página</p>
+    <div class="stat">
+      <div class="stat-value">&lt; 8 KD</div>
+      <div class="stat-label">Dificuldade Média de Rankeamento (Baixa)</div>
     </div>
-    <div class="card">
-      <div class="tag blue mb8">organic-keywords.csv</div>
-      <div class="stat-value hi mt16">409</div>
-      <div class="stat-label">palavras-chave rastreadas</div>
-      <hr>
-      <p style="font-size:13px; color:#888; margin-top:8px;">Volume, KD, CPC, intenção, posição, URL rankeando</p>
+    <div class="stat">
+      <div class="stat-value" style="color:var(--amber);">10.000</div>
+      <div class="stat-label">Visitas/mês projetadas (Mês 3 / Dia 90)</div>
     </div>
   </div>
-  <div class="card mt24" style="background:#0d0d0d; border-color:#1a4a2a;">
-    <p style="font-size:13px; color:#888;"><span class="hi" style="font-weight:600;">Nota metodológica:</span> Dataset bruto, sem limpeza. A coluna <code style="background:#1a1a1a; padding:2px 6px; border-radius:3px;">domain</code> foi adicionada na consolidação — não vem do Ahrefs original. Toda afirmação desta análise é rastreável a uma linha específica dos arquivos.</p>
+  <div class="cols cols2 mt16" style="gap:16px;">
+    <div class="card card-green">
+      <h3 class="hi">A Ferramenta Recomendada</h3>
+      <p class="mt8" style="font-size:14px;"><strong>Calculadora de Margem de Lucro e Precificação de Produtos</strong> — uma ferramenta interativa e ultrarrápida que resolve a principal dor do comerciante ao definir seu preço de venda.</p>
+    </div>
+    <div class="card card-green">
+      <h3 class="hi">Geração de Negócio (Impacto Real)</h3>
+      <p class="mt8" style="font-size:14px;"><strong>~400 novas Contas PJ / mês</strong> (conversão de 4%). A ferramenta calcula o impacto das taxas de cartão no lucro e conduz o lojista a adotar as soluções da InfinitePay.</p>
+    </div>
   </div>
 </div>
 
 <!-- ══════════════════════════════════════════════════════════
-     SLIDE 3 — Metodologia de análise
+     SLIDE 3 — Dataset & Metodologia
 ═══════════════════════════════════════════════════════════ -->
 <div class="slide" id="s3">
-  <div class="label">Metodologia</div>
-  <h2>Pipeline: de dados brutos a decisão</h2>
-  <div class="cols cols2 mt32" style="gap:20px;">
+  <div class="label">Exploração de Dados</div>
+  <h2>Dataset &amp; Pipeline Metodológico em 4 Etapas</h2>
+  <div class="cols cols2 mt20" style="gap:16px;">
     <div class="card">
-      <div class="tag mb8">Etapa 1</div>
-      <h3 class="mt8">Agrupamento Semântico</h3>
-      <p class="mt8" style="font-size:14px;">Criação de tag de cluster para cada keyword. 409 termos → 23 grupos temáticos.</p>
-      <div class="code mt16">
-        <span class="c-muted"># como classificamos</span><br>
-        <span class="c-green">"como precificar"</span> → Precificacao<br>
-        <span class="c-green">"calculadora imc"</span> → Descartado<br>
-        <span class="c-green">"fluxo de caixa"</span> → Gestao Fin.
+      <div class="tag mb8">Etapa 1 · Agrupamento Semântico</div>
+      <p style="font-size:13px;">Classificação das 409 keywords em <strong>23 clusters temáticos</strong> via regras semânticas determinísticas.</p>
+      <div class="code mt8">
+        "como precificar" → Precificacao<br>
+        "calculadora salario" → CLT (Descartado)<br>
+        "taxa cartao" → Maquininha (CTA)
       </div>
     </div>
     <div class="card">
-      <div class="tag mb8">Etapa 2</div>
-      <h3 class="mt8">Mapeamento da SERP</h3>
-      <p class="mt8" style="font-size:14px;">Cruzamento de domínios × tipo de URL por cluster. Quem rankeia e com qual formato de página?</p>
-      <div class="code mt16">
-        <span class="c-muted"># tipos de página identificados</span><br>
-        /blog/ → texto estático <span class="c-amber">← brecha!</span><br>
-        /ferramenta/ → competidor direto<br>
-        /produto/ → intenção transacional
+      <div class="tag mb8">Etapa 2 · Mapeamento da SERP</div>
+      <p style="font-size:13px;">Identificação do tipo de URL dos concorrentes no topo de cada cluster.</p>
+      <div class="code mt8">
+        /blog/ → Artigo estático <span class="c-amber">← Brecha!</span><br>
+        /ferramenta/ → Concorrente direto<br>
+        /produto/ → Transacional
       </div>
     </div>
     <div class="card">
-      <div class="tag mb8">Etapa 3</div>
-      <h3 class="mt8">Dificuldade Real</h3>
-      <p class="mt8" style="font-size:14px;">KD médio cruzado com DR dos líderes. KD baixo com DR 80+ ≠ oportunidade real.</p>
+      <div class="tag mb8">Etapa 3 · Dificuldade Real</div>
+      <p style="font-size:13px;">Cruzamento de KD com autoridade de domínio (DR dos líderes). KD baixo com DR 80+ não é brecha real.</p>
     </div>
     <div class="card">
-      <div class="tag mb8">Etapa 4</div>
-      <h3 class="mt8">Matriz Volume × Esforço</h3>
-      <p class="mt8" style="font-size:14px;">Score = Volume ÷ (KD + 1). Quanto maior, mais tráfego por unidade de esforço.</p>
+      <div class="tag mb8">Etapa 4 · Matriz Volume × Esforço</div>
+      <p style="font-size:13px;">Score = Volume ÷ (KD + 1). Precificação atingiu <strong>Score 9.750</strong> (7,6x superior ao 2º colocado).</p>
     </div>
   </div>
 </div>
 
 <!-- ══════════════════════════════════════════════════════════
-     SLIDE 4 — O que foi descartado
+     SLIDE 4 — O que foi Descartado
 ═══════════════════════════════════════════════════════════ -->
 <div class="slide" id="s4">
-  <div class="label">Avaliação inicial</div>
-  <h2>O que foi considerado e descartado</h2>
-  <table class="mt32">
+  <div class="label">Filtro Estratégico</div>
+  <h2>O que Consideramos e Descartamos (e Por Quê)</h2>
+  <table class="mt20">
     <thead>
       <tr>
-        <th>Oportunidade</th>
+        <th>Oportunidade Avaliada</th>
         <th>Volume</th>
         <th>KD</th>
         <th>Evidência no Dataset</th>
-        <th>Decisão</th>
+        <th>Racional do Descarte</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><strong>Calc. Salário Líquido / CLT</strong></td>
+        <td><strong>Calculadora de Salário / CLT</strong></td>
         <td>89.000/mês</td>
         <td><span class="kd kd-high">24</span></td>
-        <td class="dim" style="font-size:12px;">dinheirocerto.com.br — 172k visitas<br><em>competitors.csv, lin. 4</em></td>
-        <td><span class="tag red">Descartado</span><br><span style="font-size:12px; color:#888;">Zero fit com ICP — atrai CLT, não empreendedor</span></td>
+        <td class="dim" style="font-size:11px;">dinheirocerto.com.br (172k visitas)<br><em>competitors lin. 4 / top-pages lin. 2</em></td>
+        <td><span class="tag red">Descartado</span><br><span style="font-size:11px; color:#888;">Zero fit com ICP — atrai CLT, não comerciante</span></td>
       </tr>
       <tr>
-        <td><strong>Geradores Genéricos (CPF, Senha…)</strong></td>
-        <td>Alto, disperso</td>
+        <td><strong>Geradores Genéricos (CPF, Senha)</strong></td>
+        <td>Alto / Disperso</td>
         <td><span class="kd kd-low">2–4</span></td>
-        <td class="dim" style="font-size:12px;">dinheirocerto.com.br<br><em>keywords.csv, diversos</em></td>
-        <td><span class="tag red">Descartado</span><br><span style="font-size:12px; color:#888;">Tráfego sem intenção comercial nenhuma</span></td>
+        <td class="dim" style="font-size:11px;">dinheirocerto.com.br<br><em>organic-keywords.csv</em></td>
+        <td><span class="tag red">Descartado</span><br><span style="font-size:11px; color:#888;">Tráfego sem retenção ou intenção comercial</span></td>
       </tr>
       <tr>
-        <td><strong>Calc. Taxas de Maquininha</strong></td>
+        <td><strong>Calculadora de Taxa de Maquininha</strong></td>
         <td>—</td>
         <td><span class="kd kd-high">28</span></td>
-        <td class="dim" style="font-size:12px;">infinitepay.io — posição 67, 22 visitas/mês<br><em>top-pages.csv, lin. 296</em></td>
-        <td><span class="tag amber">Não como hub</span><br><span style="font-size:12px; color:#888;">KD alto, dominado por DR 80+. Usado como CTA interno.</span></td>
+        <td class="dim" style="font-size:11px;">infinitepay.io (posição 67, 22 visitas)<br><em>top-pages.csv lin. 296</em></td>
+        <td><span class="tag amber">Usado como CTA</span><br><span style="font-size:11px; color:#888;">Concorrência direta alta; capturar no meio de funil</span></td>
       </tr>
       <tr>
-        <td><strong style="color: var(--green);">Calc. Margem de Lucro e Precificação</strong></td>
+        <td><strong style="color:var(--green);">Calc. Margem &amp; Precificação</strong></td>
         <td><strong class="hi">50.000+/mês</strong></td>
         <td><span class="kd kd-low">&lt; 8</span></td>
-        <td class="dim" style="font-size:12px;">keywords.csv lin. 47, 42, 61, 149…</td>
-        <td><span class="tag">ESCOLHIDO</span><br><span style="font-size:12px; color:#4ade80;">Alta oportunidade, KD genuíno, brecha real</span></td>
+        <td class="dim" style="font-size:11px;">keywords lin. 47, 42, 61, 149...</td>
+        <td><span class="tag">ESCOLHIDO</span><br><span style="font-size:11px; color:#4ade80;">Alta intenção, KD genuíno e brecha comprovada</span></td>
       </tr>
     </tbody>
   </table>
 </div>
 
 <!-- ══════════════════════════════════════════════════════════
-     SLIDE 5 — Os dados do cluster escolhido
+     SLIDE 5 — Evidências do Dataset
 ═══════════════════════════════════════════════════════════ -->
 <div class="slide" id="s5">
-  <div class="label">organic-keywords.csv — Cluster de Precificação</div>
-  <h2>Os dados que sustentam a escolha</h2>
-  <div class="cols cols-60-40 mt28" style="gap:24px; align-items:start;">
+  <div class="label">Evidências · organic-keywords.csv</div>
+  <h2>Dados que Sustentam a Escolha da Ferramenta</h2>
+  <div class="cols cols-60-40 mt16" style="gap:20px; align-items:start;">
     <table>
       <thead>
         <tr>
-          <th>Keyword</th>
+          <th>Palavra-Chave</th>
           <th class="td-right">Volume</th>
           <th class="td-center">KD</th>
-          <th>Referência CSV</th>
+          <th>Referência no CSV</th>
         </tr>
       </thead>
       <tbody>
-        <tr><td>precificacao</td><td class="td-right"><strong>14.800</strong></td><td class="td-center"><span class="kd kd-low">7</span></td><td class="dim" style="font-size:11px;">keywords.csv, lin. 47</td></tr>
-        <tr><td>markup</td><td class="td-right"><strong>9.900</strong></td><td class="td-center"><span class="kd kd-low">3</span></td><td class="dim" style="font-size:11px;">keywords.csv, lin. 42</td></tr>
-        <tr><td>como precificar um produto</td><td class="td-right">4.100</td><td class="td-center"><span class="kd kd-low">2</span></td><td class="dim" style="font-size:11px;">keywords.csv, lin. 61</td></tr>
-        <tr><td>precificacao de produtos</td><td class="td-right">3.900</td><td class="td-center"><span class="kd kd-low">4</span></td><td class="dim" style="font-size:11px;">keywords.csv, lin. 81</td></tr>
-        <tr><td>margem de lucro</td><td class="td-right">3.300</td><td class="td-center"><span class="kd kd-low">8</span></td><td class="dim" style="font-size:11px;">keywords.csv, lin. 149</td></tr>
-        <tr><td>margem de contribuicao</td><td class="td-right">2.400</td><td class="td-center"><span class="kd kd-low">9</span></td><td class="dim" style="font-size:11px;">keywords.csv, lin. 140</td></tr>
-        <tr><td>como calcular lucro de um produto</td><td class="td-right">1.900</td><td class="td-center"><span class="kd kd-low">10</span></td><td class="dim" style="font-size:11px;">keywords.csv, lin. 204</td></tr>
-        <tr><td>como calcular margem de lucro</td><td class="td-right">1.700</td><td class="td-center"><span class="kd kd-low">5</span></td><td class="dim" style="font-size:11px;">keywords.csv, lin. 144</td></tr>
-        <tr><td>como calcular preco de venda</td><td class="td-right">880</td><td class="td-center"><span class="kd kd-low">6</span></td><td class="dim" style="font-size:11px;">keywords.csv, lin. 151</td></tr>
-        <tr><td>como dar desconto sem perder lucro</td><td class="td-right">340</td><td class="td-center"><span class="kd kd-low">6</span></td><td class="dim" style="font-size:11px;">keywords.csv, lin. 252</td></tr>
+        <tr><td>precificacao</td><td class="td-right"><strong>14.800</strong></td><td class="td-center"><span class="kd kd-low">7</span></td><td class="dim" style="font-size:11px;">keywords.csv lin. 47</td></tr>
+        <tr><td>markup</td><td class="td-right"><strong>9.900</strong></td><td class="td-center"><span class="kd kd-low">3</span></td><td class="dim" style="font-size:11px;">keywords.csv lin. 42</td></tr>
+        <tr><td>como precificar um produto</td><td class="td-right">4.100</td><td class="td-center"><span class="kd kd-low">2</span></td><td class="dim" style="font-size:11px;">keywords.csv lin. 61</td></tr>
+        <tr><td>precificacao de produtos</td><td class="td-right">3.900</td><td class="td-center"><span class="kd kd-low">4</span></td><td class="dim" style="font-size:11px;">keywords.csv lin. 81</td></tr>
+        <tr><td>margem de lucro</td><td class="td-right">3.300</td><td class="td-center"><span class="kd kd-low">8</span></td><td class="dim" style="font-size:11px;">keywords.csv lin. 149</td></tr>
+        <tr><td>margem de contribuicao</td><td class="td-right">2.400</td><td class="td-center"><span class="kd kd-low">9</span></td><td class="dim" style="font-size:11px;">keywords.csv lin. 140</td></tr>
+        <tr><td>como calcular lucro de um produto</td><td class="td-right">1.900</td><td class="td-center"><span class="kd kd-low">10</span></td><td class="dim" style="font-size:11px;">keywords.csv lin. 204</td></tr>
+        <tr><td>como calcular margem de lucro</td><td class="td-right">1.700</td><td class="td-center"><span class="kd kd-low">5</span></td><td class="dim" style="font-size:11px;">keywords.csv lin. 144</td></tr>
+        <tr><td>como calcular preco de venda</td><td class="td-right">880</td><td class="td-center"><span class="kd kd-low">6</span></td><td class="dim" style="font-size:11px;">keywords.csv lin. 151</td></tr>
+        <tr><td>como dar desconto sem perder lucro</td><td class="td-right">340</td><td class="td-center"><span class="kd kd-low">6</span></td><td class="dim" style="font-size:11px;">keywords.csv lin. 252</td></tr>
       </tbody>
     </table>
-    <div style="display:flex; flex-direction:column; gap:16px;">
+    <div style="display:flex; flex-direction:column; gap:12px;">
       <div class="stat">
-        <div class="stat-value">50k+</div>
-        <div class="stat-label">buscas/mês combinadas</div>
+        <div class="stat-value">+50.000</div>
+        <div class="stat-label">Buscas mensais somadas no cluster</div>
       </div>
       <div class="stat">
-        <div class="stat-value">&lt; 8</div>
-        <div class="stat-label">KD médio do cluster</div>
+        <div class="stat-value">5,2</div>
+        <div class="stat-label">KD Médio do Cluster (Facilidade Alta)</div>
       </div>
       <div class="stat">
-        <div class="stat-value" style="color: var(--amber);">67ª</div>
-        <div class="stat-label">posição atual da InfinitePay<br><span style="font-size:11px; color:#555;">top-pages.csv, lin. 392</span></div>
+        <div class="stat-value" style="color:var(--amber);">Posição 67</div>
+        <div class="stat-label">InfinitePay atual (URL antiga sem tráfego)<br><span style="font-size:10px; color:#666;">top-pages.csv lin. 392</span></div>
       </div>
     </div>
   </div>
 </div>
 
 <!-- ══════════════════════════════════════════════════════════
-     SLIDE 6 — A brecha competitiva
+     SLIDE 6 — A Brecha Competitiva
 ═══════════════════════════════════════════════════════════ -->
 <div class="slide" id="s6">
-  <div class="label">Análise competitiva</div>
-  <h2>A brecha: <span class="hi">ninguém tem ferramenta</span></h2>
-  <div class="cols cols2 mt32" style="gap:24px;">
+  <div class="label">Cenário Competitivo</div>
+  <h2>A Brecha: <span class="hi">Nenhum Concorrente tem Ferramenta</span></h2>
+  <div class="cols cols2 mt20" style="gap:20px;">
     <div>
-      <p style="font-size:13px; color:#666; text-transform:uppercase; letter-spacing:.08em; margin-bottom:16px;">Concorrentes no cluster de Precificação</p>
       <table>
         <thead>
-          <tr><th>Domínio</th><th>DR</th><th>Tipo de Página</th></tr>
+          <tr><th>Domínio</th><th>DR</th><th>Tipo de URL Rankeando</th></tr>
         </thead>
         <tbody>
           <tr>
             <td>giroloja.com.br</td>
             <td><strong style="color:#f87171;">38</strong></td>
-            <td><span class="tag red">/blog/ — texto estático</span></td>
+            <td><span class="tag red">/blog/ — texto longo estático</span></td>
           </tr>
           <tr>
             <td>lojafacil.com.br</td>
             <td><strong style="color:#fbbf24;">54</strong></td>
-            <td><span class="tag red">/blog/ — texto estático</span></td>
+            <td><span class="tag red">/blog/ — texto longo estático</span></td>
           </tr>
           <tr>
             <td>vendamais.com.br</td>
             <td><strong style="color:#fbbf24;">52</strong></td>
-            <td><span class="tag red">/blog/ — texto estático</span></td>
+            <td><span class="tag red">/blog/ — texto longo estático</span></td>
           </tr>
           <tr>
-            <td style="color: var(--green); font-weight:600;">infinitepay.io</td>
+            <td style="color:var(--green); font-weight:700;">infinitepay.io</td>
             <td><strong class="hi">68</strong></td>
-            <td><span class="tag amber">posição 67 — sem tráfego</span></td>
+            <td><span class="tag amber">posição 67 — tráfego zerado</span></td>
           </tr>
         </tbody>
       </table>
-      <p class="mt16" style="font-size:13px; color:#888;">Fonte: organic-competitors.csv + top-pages.csv, lin. 392</p>
+      <p class="mt12" style="font-size:12px; color:#888;">Fonte: organic-competitors.csv + top-pages.csv lin. 392</p>
     </div>
-    <div style="display:flex; flex-direction:column; gap:16px;">
+    <div style="display:flex; flex-direction:column; gap:12px;">
       <div class="card card-green">
-        <h3 class="hi">DR 68 vs. DR 54</h3>
-        <p class="mt8" style="font-size:14px;">InfinitePay supera em autoridade de domínio todos os concorrentes que hoje lideram o cluster. Com uma página técnica, o Top 1 é alcançável.</p>
+        <h3 class="hi">Autoridade Superior: DR 68 vs DR 54</h3>
+        <p class="mt4" style="font-size:13px;">A InfinitePay supera em autoridade de domínio todos os players que lideram as buscas hoje. O Top 1 é altamente viável.</p>
       </div>
       <div class="card card-green">
-        <h3 class="hi">Zero ferramentas interativas</h3>
-        <p class="mt8" style="font-size:14px;">Todos os concorrentes respondem a "calculadora de margem de lucro" com artigos longos de texto. Nenhum entrega uma ferramenta funcional.</p>
+        <h3 class="hi">Intenção Não Atendida (Zero Apps)</h3>
+        <p class="mt4" style="font-size:13px;">O comerciante busca fazer o cálculo, mas os sites entregam artigos teóricos de 2.000 palavras. Uma calculadora funcional vence a SERP.</p>
       </div>
       <div class="card card-amber">
-        <h3 style="color:var(--amber);">Página antiga existe, mas falha</h3>
-        <p class="mt8" style="font-size:14px;"><code style="background:#1a1a1a; padding:2px 6px; border-radius:3px; font-size:12px;">/materiais/calculadora-de-margem</code> posição 67, tráfego zero. O intent não está sendo atendido.</p>
+        <h3 style="color:var(--amber);">Oportunidade de Redirect 301</h3>
+        <p class="mt4" style="font-size:13px;">Redirecionamos a URL antiga (`/materiais/calculadora-de-margem`) para transferir autoridade e acelerar a subida da posição 67 para o Top 3.</p>
       </div>
     </div>
   </div>
 </div>
 
 <!-- ══════════════════════════════════════════════════════════
-     SLIDE 7 — Fit com a InfinitePay
+     SLIDE 7 — Fit de Negócio & Produtos
 ═══════════════════════════════════════════════════════════ -->
 <div class="slide" id="s7">
-  <div class="label">Fit de negócio</div>
-  <h2>Por que faz sentido <span class="hi">para a InfinitePay</span></h2>
-  <p class="lead mt16">Precificar exige calcular taxas de pagamento. A ferramenta conecta o problema do empreendedor aos produtos da InfinitePay.</p>
-  <table class="mt24">
+  <div class="label">Fit com o Ecossistema InfinitePay</div>
+  <h2>Como a Ferramenta Converte Tráfego em Clientes</h2>
+  <p class="lead mt8">Para precificar, o lojista precisa calcular taxas de pagamento. A calculadora demonstra a economia real da InfinitePay.</p>
+  <table class="mt16">
     <thead>
       <tr>
-        <th>Produto</th>
-        <th>Taxa real</th>
-        <th>Gancho na ferramenta</th>
+        <th>Solução InfinitePay</th>
+        <th>Taxas Reais</th>
+        <th>Gancho Comercial na Calculadora</th>
       </tr>
     </thead>
     <tbody>
       <tr>
-        <td><strong>InfiniteTap</strong> — venda no celular</td>
+        <td><strong>InfiniteTap</strong> (Venda no Celular)</td>
         <td><span class="hi">Débito 0,75% · Crédito 2,89%</span></td>
-        <td style="font-size:13px; color:#aaa;">Venda no celular sem gastar com maquininha</td>
+        <td style="font-size:12px; color:#aaa;">"Venda no celular sem gastar nada com maquininha e preserve seu lucro."</td>
       </tr>
       <tr>
-        <td><strong>InfiniteSmart</strong> — maquininha física</td>
+        <td><strong>InfiniteSmart</strong> (Maquininha Física)</td>
         <td><span class="hi">Débito 0,75% · Crédito 2,89%</span></td>
-        <td style="font-size:13px; color:#aaa;">Sem aluguel mensal — até 40% de economia por venda</td>
+        <td style="font-size:12px; color:#aaa;">"Elimine aluguel e economize até 40% nas taxas de cartão por venda."</td>
       </tr>
       <tr>
         <td><strong>Link de Pagamento</strong></td>
-        <td><span class="hi">Pix: 0,00% (grátis)</span></td>
-        <td style="font-size:13px; color:#aaa;">Venda pelo WhatsApp com taxa zero no Pix</td>
+        <td><span class="hi">Pix: 0,00% (Grátis)</span></td>
+        <td style="font-size:12px; color:#aaa;">"Venda pelo WhatsApp com taxa zero no Pix e receba na hora."</td>
       </tr>
       <tr>
         <td><strong>Conta PJ Digital</strong></td>
         <td><span class="hi">Pix ilimitado: R$ 0,00</span></td>
-        <td style="font-size:13px; color:#aaa;">Zere os custos bancários — CTA final de conversão</td>
-      </tr>
-      <tr>
-        <td><strong>Saldo rendendo</strong></td>
-        <td><span class="hi">100%+ do CDI diário</span></td>
-        <td style="font-size:13px; color:#aaa;">Caixa das vendas rende enquanto planeja estoque</td>
+        <td style="font-size:12px; color:#aaa;">"Zere tarifas bancárias e receba as vendas no mesmo dia."</td>
       </tr>
     </tbody>
   </table>
-  <div class="card card-green mt24">
-    <p style="font-size:14px;"><strong class="hi">Fluxo de conversão:</strong> Usuário busca "como precificar" → Usa a calculadora → Percebe que a taxa da InfinitePay aumenta sua margem → Clica em "Abrir Conta Grátis"</p>
+  <div class="card card-green mt16">
+    <p style="font-size:13px;"><strong class="hi">Funil de Ativação:</strong> Busca ("como precificar") → Calcula custos na ferramenta → Vê a economia no comparador de taxas → Clica em <em>"Abrir Conta PJ Grátis"</em>.</p>
   </div>
 </div>
 
 <!-- ══════════════════════════════════════════════════════════
-     SLIDE 8 — Arquitetura Hub & Spoke
+     SLIDE 8 — Topic Cluster (Hub & Spoke)
 ═══════════════════════════════════════════════════════════ -->
 <div class="slide" id="s8">
-  <div class="label">Arquitetura de conteúdo</div>
-  <h2>Hub &amp; Spoke — Topic Cluster</h2>
-  <div class="cols cols-40-60 mt32" style="gap:28px; align-items:start;">
+  <div class="label">Arquitetura de Conteúdo</div>
+  <h2>Hub &amp; Spoke: Estrutura do Topic Cluster</h2>
+  <div class="cols cols-40-60 mt20" style="gap:20px; align-items:start;">
     <div>
       <div class="card card-green">
         <div class="tag mb8">Página Pilar (Hub)</div>
-        <h3 class="mt8 hi" style="font-size:16px;">/ferramentas/<br>calculadora-margem-lucro-precificacao</h3>
-        <p class="mt8" style="font-size:13px;">Ferramenta interativa. Centraliza autoridade e captura 50k buscas/mês do cluster.</p>
+        <h3 class="hi" style="font-size:15px;">/ferramentas/<br>calculadora-margem-lucro-precificacao</h3>
+        <p class="mt8" style="font-size:12px;">Ferramenta interativa central. Concentra autoridade e responde às intenções de alto volume (+50k buscas).</p>
       </div>
     </div>
-    <div>
-      <p style="font-size:13px; color:#666; text-transform:uppercase; letter-spacing:.08em; margin-bottom:14px;">Artigos satélites — Topic Cluster</p>
-      <div style="display:flex; flex-direction:column; gap:8px;">
-        <div class="card" style="padding:12px 16px; display:flex; justify-content:space-between; align-items:center;">
-          <span style="font-size:14px;">O que é Markup e o Markup Divisor</span>
-          <span class="tag">9.900/mês · KD 3</span>
-        </div>
-        <div class="card" style="padding:12px 16px; display:flex; justify-content:space-between; align-items:center;">
-          <span style="font-size:14px;">Markup vs Margem de Lucro: qual usar?</span>
-          <span class="tag">390/mês · KD 5</span>
-        </div>
-        <div class="card" style="padding:12px 16px; display:flex; justify-content:space-between; align-items:center;">
-          <span style="font-size:14px;">Margem de Contribuição: como calcular</span>
-          <span class="tag">2.400/mês · KD 9</span>
-        </div>
-        <div class="card" style="padding:12px 16px; display:flex; justify-content:space-between; align-items:center;">
-          <span style="font-size:14px;">Como calcular o lucro real de um produto</span>
-          <span class="tag">1.900/mês · KD 10</span>
-        </div>
-        <div class="card" style="padding:12px 16px; display:flex; justify-content:space-between; align-items:center;">
-          <span style="font-size:14px;">Como dar desconto sem perder o lucro</span>
-          <span class="tag">340/mês · KD 6</span>
-        </div>
-        <div class="card" style="padding:12px 16px; display:flex; justify-content:space-between; align-items:center;">
-          <span style="font-size:14px;">CMV e Custos Fixos: como calcular</span>
-          <span class="tag">Base do cluster</span>
-        </div>
+    <div style="display:flex; flex-direction:column; gap:6px;">
+      <div class="card" style="padding:10px 14px; display:flex; justify-content:space-between; align-items:center;">
+        <span style="font-size:13px;">O que é Markup e como aplicar o Markup Divisor</span>
+        <span class="tag">9.900/mês · KD 3</span>
+      </div>
+      <div class="card" style="padding:10px 14px; display:flex; justify-content:space-between; align-items:center;">
+        <span style="font-size:13px;">Markup vs Margem de Lucro: Qual a diferença e qual usar?</span>
+        <span class="tag">390/mês · KD 5</span>
+      </div>
+      <div class="card" style="padding:10px 14px; display:flex; justify-content:space-between; align-items:center;">
+        <span style="font-size:13px;">Margem de Contribuição: Como calcular</span>
+        <span class="tag">2.400/mês · KD 9</span>
+      </div>
+      <div class="card" style="padding:10px 14px; display:flex; justify-content:space-between; align-items:center;">
+        <span style="font-size:13px;">Como calcular o lucro real de um produto</span>
+        <span class="tag">1.900/mês · KD 10</span>
+      </div>
+      <div class="card" style="padding:10px 14px; display:flex; justify-content:space-between; align-items:center;">
+        <span style="font-size:13px;">Como dar desconto sem perder o lucro</span>
+        <span class="tag">340/mês · KD 6</span>
+      </div>
+      <div class="card" style="padding:10px 14px; display:flex; justify-content:space-between; align-items:center;">
+        <span style="font-size:13px;">CMV, Custos Fixos e Ponto de Equilíbrio</span>
+        <span class="tag">Base do Cluster (~4.5k)</span>
       </div>
     </div>
   </div>
 </div>
 
 <!-- ══════════════════════════════════════════════════════════
-     SLIDE 9 — Decisões técnicas da página
+     SLIDE 9 — Estrutura Técnica (SEO, AEO & GEO)
 ═══════════════════════════════════════════════════════════ -->
 <div class="slide" id="s9">
-  <div class="label">Decisões técnicas</div>
-  <h2>Por que cada elemento foi escolhido</h2>
-  <div class="cols cols2 mt28" style="gap:24px;">
+  <div class="label">Excelência Técnica</div>
+  <h2>Preparada para a SERP Tradicional e Motores de IA</h2>
+  <div class="cols cols2 mt16" style="gap:16px;">
     <div class="card">
       <div class="decision-row">
-        <div class="decision-key">URL</div>
-        <div class="decision-val"><strong>/ferramentas/calculadora-margem-lucro-precificacao</strong><br><span style="font-size:12px; color:#666;">Redirect 301 da URL antiga — herda posição 67</span></div>
+        <div class="decision-key">Title Tag</div>
+        <div class="decision-val"><strong>Calculadora de Margem de Lucro e Precificação Grátis | InfinitePay</strong> (62 chars · CTR máximo)</div>
       </div>
       <div class="decision-row">
-        <div class="decision-key">Title</div>
-        <div class="decision-val"><strong>Calculadora de Margem de Lucro e Precificação Grátis | InfinitePay</strong><br><span style="font-size:12px; color:#666;">62 chars · keyword no início · "Grátis" eleva CTR</span></div>
+        <div class="decision-key">H1 Semântico</div>
+        <div class="decision-val"><strong>Calculadora de Margem de Lucro e Precificação de Produtos</strong> (Único e canônico)</div>
       </div>
       <div class="decision-row">
-        <div class="decision-key">H1</div>
-        <div class="decision-val"><strong>Calculadora de Margem de Lucro e Precificação de Produtos</strong><br><span style="font-size:12px; color:#666;">Único na página · idêntico ao topic principal</span></div>
+        <div class="decision-key">Answer-First</div>
+        <div class="decision-val">Respostas diretas de até 250 caracteres no topo de cada bloco para extração por IA.</div>
       </div>
       <div class="decision-row">
-        <div class="decision-key">Description</div>
-        <div class="decision-val">Verbo de ação + diferencial único (taxas inclusas) + remoção de objeção (sem cadastro) · 158 chars</div>
+        <div class="decision-key">Schema.org</div>
+        <div class="decision-val"><code>WebApplication</code> + <code>FAQPage</code> + <code>Organization</code> (Rich snippets e sinais de entidade).</div>
       </div>
     </div>
     <div class="card">
       <div class="decision-row">
-        <div class="decision-key">Schema</div>
-        <div class="decision-val"><strong>WebApplication + FAQPage + BreadcrumbList</strong><br><span style="font-size:12px; color:#666;">Rich snippets de app + FAQ expandido na SERP</span></div>
+        <div class="decision-key">Core Web Vitals</div>
+        <div class="decision-val"><strong>Vanilla HTML + CSS + JS</strong> (Zero libs pesadas · LCP &lt; 0.8s · CLS = 0 · PageSpeed &gt; 95).</div>
       </div>
       <div class="decision-row">
-        <div class="decision-key">FAQ</div>
-        <div class="decision-val">6 perguntas selecionadas por volume de busca. Accordion com aria — o Google indexa o conteúdo oculto.</div>
+        <div class="decision-key">Mídia &amp; Imagens</div>
+        <div class="decision-val">Sem imagens decorativas que atrasem carregamento. Ícones em SVG inline.</div>
       </div>
       <div class="decision-row">
-        <div class="decision-key">Tech stack</div>
-        <div class="decision-val"><strong>Vanilla HTML + CSS + JS</strong><br><span style="font-size:12px; color:#666;">LCP &lt; 1s · CLS = 0 · PageSpeed &gt; 95</span></div>
-      </div>
-      <div class="decision-row">
-        <div class="decision-key">Imagens</div>
-        <div class="decision-val">Sem imagens decorativas. Apenas og:image e logo no JSON-LD. Ícones em SVG inline — zero HTTP extra.</div>
+        <div class="decision-key">FAQ Estruturado</div>
+        <div class="decision-val">6 perguntas com aria-expanded indexadas pelo Googlebot e LLMs.</div>
       </div>
     </div>
   </div>
 </div>
 
 <!-- ══════════════════════════════════════════════════════════
-     SLIDE 10 — Roadmap 90 dias
+     SLIDE 10 — Roadmap de 90 Dias
 ═══════════════════════════════════════════════════════════ -->
 <div class="slide" id="s10">
-  <div class="label">Plano de execução</div>
-  <h2>Roadmap de 90 dias — SEO &amp; AEO</h2>
-  <div class="cols cols3 mt28" style="gap:20px;">
+  <div class="label">Plano de Execução</div>
+  <h2>Roadmap de 90 Dias com Metas Claras de Ramp</h2>
+  <div class="cols cols3 mt16" style="gap:16px;">
     <div class="phase phase-1">
       <div class="phase-title hi">Fase 1 · Dias 1–30</div>
-      <div style="font-size:12px; color:#888; margin-bottom:8px;">Fundação Técnica</div>
-      <div class="phase-item">Deploy em nova URL</div>
+      <div style="font-size:11px; color:#888;">Fundação Técnica &amp; Entidade</div>
+      <div class="phase-item">Deploy na nova URL</div>
       <div class="phase-item">Redirect 301 da URL antiga</div>
-      <div class="phase-item">Validação Schema (Rich Results Test)</div>
-      <div class="phase-item">Internal linking no blog</div>
-      <div class="phase-item">Monitoramento no GSC</div>
-      <hr style="border-color:#1a4a2a; margin: 10px 0;">
-      <div style="font-size:12px; color:#4ade80;">Meta: PageSpeed &gt; 95 · Página indexada · Redirect funcionando</div>
+      <div class="phase-item">Validação Schema Rich Results</div>
+      <div class="phase-item">Internal linking no Blog</div>
+      <hr style="border-color:#1a4422; margin: 6px 0;">
+      <div style="font-size:11px; color:#4ade80;"><strong>Meta:</strong> PageSpeed &gt; 95 · Indexação limpa GSC</div>
     </div>
     <div class="phase phase-2">
       <div class="phase-title" style="color:var(--amber);">Fase 2 · Dias 31–60</div>
-      <div style="font-size:12px; color:#888; margin-bottom:8px;">Topic Cluster, Multicanal &amp; Digital PR</div>
-      <div class="phase-item">6 artigos satélites (Answer-First)</div>
-      <div class="phase-item">Digital PR: Sebrae, portais MEI e contábeis</div>
-      <div class="phase-item">Distribuição multicanal (Shorts, Reels, TikTok)</div>
-      <div class="phase-item">Funil: Ativação ≥ 60% · CTR em CTAs ≥ 8%</div>
-      <hr style="border-color:#4a3a1a; margin: 10px 0;">
-      <div style="font-size:12px; color:#fbbf24;"><strong>Meta Mês 2:</strong> ≥ 3.500 visitas · Conversão ≥ 2,5% (~85 contas)</div>
+      <div style="font-size:11px; color:#888;">Topic Cluster &amp; Digital PR</div>
+      <div class="phase-item">6 artigos satélites publicados</div>
+      <div class="phase-item">Digital PR: Sebrae e portais MEI</div>
+      <div class="phase-item">Distribuição multicanal (vídeos curtos)</div>
+      <div class="phase-item">Flywheel social para a ferramenta</div>
+      <hr style="border-color:#44361a; margin: 6px 0;">
+      <div style="font-size:11px; color:#fbbf24;"><strong>Meta Mês 2:</strong> ≥ 3.500 visitas · Conv. ≥ 2,5% (~85 contas)</div>
     </div>
     <div class="phase phase-3">
       <div class="phase-title" style="color:#60a5fa;">Fase 3 · Dias 61–90</div>
-      <div style="font-size:12px; color:#888; margin-bottom:8px;">AEO, CRO &amp; Expansão</div>
-      <div class="phase-item">Auditoria AEO (Gemini, Perplexity, GPT)</div>
-      <div class="phase-item">Blocos de resposta ≤ 250 chars (RAG)</div>
-      <div class="phase-item">Testes A/B nos CTAs da calculadora</div>
-      <div class="phase-item">Revisão de metas · Simulador de Parcelamento</div>
-      <hr style="border-color:#1e2a4a; margin: 10px 0;">
-      <div style="font-size:12px; color:#60a5fa;"><strong>Meta Mês 3:</strong> ≥ 10.000 visitas · Conversão ≥ 4,0% (~400 contas)</div>
+      <div style="font-size:11px; color:#888;">AEO, GEO, CRO &amp; Expansão</div>
+      <div class="phase-item">Auditoria AEO (Gemini, ChatGPT, Perplexity)</div>
+      <div class="phase-item">Refinamento RAG (blocos ≤ 250 chars)</div>
+      <div class="phase-item">Testes A/B nos CTAs de conversão</div>
+      <div class="phase-item">Expansão: Simulador de Parcelamento</div>
+      <hr style="border-color:#1e2c44; margin: 6px 0;">
+      <div style="font-size:11px; color:#60a5fa;"><strong>Meta Mês 3:</strong> ≥ 10.000 visitas · Conv. ≥ 4,0% (~400 contas)</div>
     </div>
   </div>
 </div>
 
 <!-- ══════════════════════════════════════════════════════════
-     SLIDE 11 — Métricas de sucesso
+     SLIDE 11 — Mensuração & Limitações
 ═══════════════════════════════════════════════════════════ -->
 <div class="slide" id="s11">
-  <div class="label">Definição de sucesso</div>
-  <h2>O que medimos para saber se funcionou</h2>
-  <div class="cols cols2 mt32" style="gap:24px;">
+  <div class="label">Governança &amp; Análise Crítica</div>
+  <h2>Métricas de Sucesso e Limitações do Dataset</h2>
+  <div class="cols cols2 mt16" style="gap:20px;">
     <div class="card">
-      <p style="font-size:12px; color:#555; text-transform:uppercase; letter-spacing:.08em; margin-bottom:16px;">Métricas — Dia 90</p>
+      <p style="font-size:11px; color:#555; text-transform:uppercase; letter-spacing:.08em; margin-bottom:12px;">Metas Consolidadas — Dia 90</p>
       <div class="metric-row">
-        <span class="metric-name">Visitas orgânicas mensais</span>
-        <span>
-          <span class="metric-val">≥ 10.000</span>
-          <span class="metric-tool"> · GSC</span>
-        </span>
+        <span class="metric-name">Tráfego Orgânico Mensal</span>
+        <span><span class="metric-val">≥ 10.000 visitas</span> <span class="metric-tool">· GSC</span></span>
       </div>
       <div class="metric-row">
-        <span class="metric-name">Posição nas keywords principais</span>
-        <span>
-          <span class="metric-val">Top 3</span>
-          <span class="metric-tool"> · Ahrefs / GSC</span>
-        </span>
+        <span class="metric-name">Posicionamento no Cluster</span>
+        <span><span class="metric-val">Top 3</span> <span class="metric-tool">· Ahrefs / GSC</span></span>
       </div>
       <div class="metric-row">
-        <span class="metric-name">Conversão visitante → Conta PJ</span>
-        <span>
-          <span class="metric-val">≥ 4%</span>
-          <span class="metric-tool"> · GA / Mixpanel</span>
-        </span>
+        <span class="metric-name">Taxa de Conversão (Conta PJ)</span>
+        <span><span class="metric-val">≥ 4,0% (~400 contas/mês)</span> <span class="metric-tool">· GA4</span></span>
       </div>
       <div class="metric-row">
-        <span class="metric-name">Citações em respostas de IA</span>
-        <span>
-          <span class="metric-val">≥ 5/mês</span>
-          <span class="metric-tool"> · Manual</span>
-        </span>
+        <span class="metric-name">Citações em Motores de IA</span>
+        <span><span class="metric-val">≥ 5 citações/sem</span> <span class="metric-tool">· Auditoria</span></span>
       </div>
       <div class="metric-row">
-        <span class="metric-name">Backlinks conquistados (DR &gt; 40)</span>
-        <span>
-          <span class="metric-val">≥ 10 domínios</span>
-          <span class="metric-tool"> · Ahrefs</span>
-        </span>
+        <span class="metric-name">Backlinks de Autoridade (DR &gt; 40)</span>
+        <span><span class="metric-val">≥ 10 domínios</span> <span class="metric-tool">· Ahrefs</span></span>
       </div>
     </div>
-    <div style="display:flex; flex-direction:column; gap:16px;">
+    <div style="display:flex; flex-direction:column; gap:12px;">
       <div class="card card-green">
-        <h3 class="hi" style="font-size:15px;">Como rastreamos pessoas vindas por IA</h3>
-        <ul style="margin-top:10px; padding-left:18px; display:flex; flex-direction:column; gap:6px;">
-          <li style="font-size:13px; color:#ddd;"><strong style="color:var(--green);">GA4 AI Referral:</strong> monitorar acessos diretos de <code style="font-size:11px; background:#1a1a1a; padding:2px 4px; border-radius:3px;">chatgpt.com</code>, <code style="font-size:11px; background:#1a1a1a; padding:2px 4px; border-radius:3px;">perplexity.ai</code> e <code style="font-size:11px; background:#1a1a1a; padding:2px 4px; border-radius:3px;">gemini</code></li>
-          <li style="font-size:13px; color:#ddd;"><strong style="color:var(--green);">GSC AI Overviews:</strong> cliques e impressões vindos dos resumos de IA do Google</li>
-          <li style="font-size:13px; color:#ddd;"><strong style="color:var(--green);">Bateria Semanal:</strong> 20 prompts de compra rodados para testar taxa de citação</li>
+        <h3 class="hi" style="font-size:14px;">Rastreamento de Tráfego de IA</h3>
+        <ul style="margin-top:8px; padding-left:16px; display:flex; flex-direction:column; gap:4px;">
+          <li style="font-size:12px; color:#ddd;"><strong style="color:var(--green);">GA4 AI Referral:</strong> monitorar <code>chatgpt.com</code>, <code>perplexity.ai</code>, <code>gemini.google.com</code>.</li>
+          <li style="font-size:12px; color:#ddd;"><strong style="color:var(--green);">Google Search Console:</strong> cliques nos blocos de <em>AI Overviews</em>.</li>
         </ul>
       </div>
-      <div class="card" style="border-color:#2a2a2a;">
-        <h3 style="font-size:15px; color:#aaa;">O que o dataset não permite concluir</h3>
-        <ul style="margin-top:10px; padding-left:18px; display:flex; flex-direction:column; gap:6px;">
-          <li style="font-size:12px; color:#888;"><strong>Amostra reduzida (~400 lin):</strong> cauda longa oculta, limitando outras ferramentas</li>
-          <li style="font-size:12px; color:#888;"><strong>Falta de sazonalidade:</strong> 6 meses agregados oculta picos de Black Friday e descontos</li>
-          <li style="font-size:12px; color:#888;"><strong>CTR de ferramentas:</strong> Ahrefs subestima o clique em apps interativos</li>
-          <li style="font-size:12px; color:#888;"><strong>Ponto cego de IA:</strong> Ahrefs clássico tem zero dados de LLMs e AEO</li>
+      <div class="card" style="border-color:#262626;">
+        <h3 style="font-size:14px; color:#aaa;">Limitações Críticas do Dataset</h3>
+        <ul style="margin-top:8px; padding-left:16px; display:flex; flex-direction:column; gap:4px;">
+          <li style="font-size:11px; color:#888;"><strong>Amostra (~400 lin):</strong> Cauda longa oculta, limitando outras ferramentas.</li>
+          <li style="font-size:11px; color:#888;"><strong>Sazonalidade:</strong> 6 meses agregados oculta picos de descontos/Black Friday.</li>
+          <li style="font-size:11px; color:#888;"><strong>Ponto Cego de IA:</strong> Ahrefs clássico não traz métricas de LLMs.</li>
         </ul>
       </div>
     </div>
@@ -743,7 +694,6 @@
     if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')                     go(-1);
   });
 
-  // init progress
   document.getElementById('progress').style.width = (1 / total * 100) + '%';
 </script>
 </body>
